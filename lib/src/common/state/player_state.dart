@@ -8,7 +8,7 @@ part 'player_state.g.dart';
 @freezed
 class PlayerState with _$PlayerState {
   factory PlayerState.data({
-    required String currentBoard,
+    required List<int> currentBoard,
     required PlayerColors color,
     required String name,
     required Map<String, SlidepartyActions> affectedActions,
