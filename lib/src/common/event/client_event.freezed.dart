@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'player_event.dart';
+part of 'client_event.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,8 +15,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$PlayerEventTearOff {
-  const _$PlayerEventTearOff();
+class _$ClientEventTearOff {
+  const _$ClientEventTearOff();
 
   SendName sendName(String name) {
     return SendName(
@@ -39,10 +39,10 @@ class _$PlayerEventTearOff {
 }
 
 /// @nodoc
-const $PlayerEvent = _$PlayerEventTearOff();
+const $ClientEvent = _$ClientEventTearOff();
 
 /// @nodoc
-mixin _$PlayerEvent {
+mixin _$ClientEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String name) sendName,
@@ -93,19 +93,19 @@ mixin _$PlayerEvent {
 }
 
 /// @nodoc
-abstract class $PlayerEventCopyWith<$Res> {
-  factory $PlayerEventCopyWith(
-          PlayerEvent value, $Res Function(PlayerEvent) then) =
-      _$PlayerEventCopyWithImpl<$Res>;
+abstract class $ClientEventCopyWith<$Res> {
+  factory $ClientEventCopyWith(
+          ClientEvent value, $Res Function(ClientEvent) then) =
+      _$ClientEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$PlayerEventCopyWithImpl<$Res> implements $PlayerEventCopyWith<$Res> {
-  _$PlayerEventCopyWithImpl(this._value, this._then);
+class _$ClientEventCopyWithImpl<$Res> implements $ClientEventCopyWith<$Res> {
+  _$ClientEventCopyWithImpl(this._value, this._then);
 
-  final PlayerEvent _value;
+  final ClientEvent _value;
   // ignore: unused_field
-  final $Res Function(PlayerEvent) _then;
+  final $Res Function(ClientEvent) _then;
 }
 
 /// @nodoc
@@ -116,7 +116,7 @@ abstract class $SendNameCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SendNameCopyWithImpl<$Res> extends _$PlayerEventCopyWithImpl<$Res>
+class _$SendNameCopyWithImpl<$Res> extends _$ClientEventCopyWithImpl<$Res>
     implements $SendNameCopyWith<$Res> {
   _$SendNameCopyWithImpl(SendName _value, $Res Function(SendName) _then)
       : super(_value, (v) => _then(v as SendName));
@@ -147,7 +147,7 @@ class _$SendName implements SendName {
 
   @override
   String toString() {
-    return 'PlayerEvent.sendName(name: $name)';
+    return 'ClientEvent.sendName(name: $name)';
   }
 
   @override
@@ -239,7 +239,7 @@ class _$SendName implements SendName {
   }
 }
 
-abstract class SendName implements PlayerEvent {
+abstract class SendName implements ClientEvent {
   const factory SendName(String name) = _$SendName;
 
   String get name;
@@ -256,7 +256,7 @@ abstract class $SendBoardCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SendBoardCopyWithImpl<$Res> extends _$PlayerEventCopyWithImpl<$Res>
+class _$SendBoardCopyWithImpl<$Res> extends _$ClientEventCopyWithImpl<$Res>
     implements $SendBoardCopyWith<$Res> {
   _$SendBoardCopyWithImpl(SendBoard _value, $Res Function(SendBoard) _then)
       : super(_value, (v) => _then(v as SendBoard));
@@ -287,7 +287,7 @@ class _$SendBoard implements SendBoard {
 
   @override
   String toString() {
-    return 'PlayerEvent.sendBoard(board: $board)';
+    return 'ClientEvent.sendBoard(board: $board)';
   }
 
   @override
@@ -379,7 +379,7 @@ class _$SendBoard implements SendBoard {
   }
 }
 
-abstract class SendBoard implements PlayerEvent {
+abstract class SendBoard implements ClientEvent {
   const factory SendBoard(List<int> board) = _$SendBoard;
 
   List<int> get board;
@@ -397,7 +397,7 @@ abstract class $SendActionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SendActionCopyWithImpl<$Res> extends _$PlayerEventCopyWithImpl<$Res>
+class _$SendActionCopyWithImpl<$Res> extends _$ClientEventCopyWithImpl<$Res>
     implements $SendActionCopyWith<$Res> {
   _$SendActionCopyWithImpl(SendAction _value, $Res Function(SendAction) _then)
       : super(_value, (v) => _then(v as SendAction));
@@ -435,7 +435,7 @@ class _$SendAction implements SendAction {
 
   @override
   String toString() {
-    return 'PlayerEvent.sendAction(affectedPlayerId: $affectedPlayerId, action: $action)';
+    return 'ClientEvent.sendAction(affectedPlayerId: $affectedPlayerId, action: $action)';
   }
 
   @override
@@ -531,7 +531,7 @@ class _$SendAction implements SendAction {
   }
 }
 
-abstract class SendAction implements PlayerEvent {
+abstract class SendAction implements ClientEvent {
   const factory SendAction(String affectedPlayerId, SlidepartyActions action) =
       _$SendAction;
 

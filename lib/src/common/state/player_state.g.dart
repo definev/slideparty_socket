@@ -6,8 +6,7 @@ part of 'player_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PlayerStateData _$$PlayerStateDataFromJson(Map<String, dynamic> json) =>
-    _$PlayerStateData(
+_$PlayerData _$$PlayerDataFromJson(Map<String, dynamic> json) => _$PlayerData(
       currentBoard: json['currentBoard'] as String,
       color: $enumDecode(_$PlayerColorsEnumMap, json['color']),
       name: json['name'] as String,
@@ -19,7 +18,7 @@ _$PlayerStateData _$$PlayerStateDataFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$PlayerStateDataToJson(_$PlayerStateData instance) =>
+Map<String, dynamic> _$$PlayerDataToJson(_$PlayerData instance) =>
     <String, dynamic>{
       'currentBoard': instance.currentBoard,
       'color': _$PlayerColorsEnumMap[instance.color],

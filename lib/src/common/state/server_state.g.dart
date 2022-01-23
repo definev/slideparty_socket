@@ -1,32 +1,32 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'room_state.dart';
+part of 'server_state.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RoomStateData _$$RoomStateDataFromJson(Map<String, dynamic> json) =>
-    _$RoomStateData(
+_$RoomData _$$RoomDataFromJson(Map<String, dynamic> json) => _$RoomData(
       code: json['code'] as String,
       players: const MapPlayerStateConverter()
           .fromJson(json['players'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$RoomStateDataToJson(_$RoomStateData instance) =>
+Map<String, dynamic> _$$RoomDataToJson(_$RoomData instance) =>
     <String, dynamic>{
       'code': instance.code,
       'players': const MapPlayerStateConverter().toJson(instance.players),
       'runtimeType': instance.$type,
     };
 
-_$RoomStateLoading _$$RoomStateLoadingFromJson(Map<String, dynamic> json) =>
-    _$RoomStateLoading(
+_$ReceiveId _$$ReceiveIdFromJson(Map<String, dynamic> json) => _$ReceiveId(
+      json['userId'] as String,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$RoomStateLoadingToJson(_$RoomStateLoading instance) =>
+Map<String, dynamic> _$$ReceiveIdToJson(_$ReceiveId instance) =>
     <String, dynamic>{
+      'userId': instance.userId,
       'runtimeType': instance.$type,
     };

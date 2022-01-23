@@ -15,20 +15,20 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PlayerState _$PlayerStateFromJson(Map<String, dynamic> json) {
-  return PlayerStateData.fromJson(json);
+  return PlayerData.fromJson(json);
 }
 
 /// @nodoc
 class _$PlayerStateTearOff {
   const _$PlayerStateTearOff();
 
-  PlayerStateData call(
+  PlayerData data(
       {required String currentBoard,
       required PlayerColors color,
       required String name,
       required Map<String, SlidepartyActions> affectedActions,
       required List<SlidepartyActions> usedActions}) {
-    return PlayerStateData(
+    return PlayerData(
       currentBoard: currentBoard,
       color: color,
       name: name,
@@ -54,6 +54,56 @@ mixin _$PlayerState {
       throw _privateConstructorUsedError;
   List<SlidepartyActions> get usedActions => throw _privateConstructorUsedError;
 
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String currentBoard,
+            PlayerColors color,
+            String name,
+            Map<String, SlidepartyActions> affectedActions,
+            List<SlidepartyActions> usedActions)
+        data,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(
+            String currentBoard,
+            PlayerColors color,
+            String name,
+            Map<String, SlidepartyActions> affectedActions,
+            List<SlidepartyActions> usedActions)?
+        data,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String currentBoard,
+            PlayerColors color,
+            String name,
+            Map<String, SlidepartyActions> affectedActions,
+            List<SlidepartyActions> usedActions)?
+        data,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PlayerData value) data,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(PlayerData value)? data,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PlayerData value)? data,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PlayerStateCopyWith<PlayerState> get copyWith =>
@@ -115,11 +165,10 @@ class _$PlayerStateCopyWithImpl<$Res> implements $PlayerStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $PlayerStateDataCopyWith<$Res>
-    implements $PlayerStateCopyWith<$Res> {
-  factory $PlayerStateDataCopyWith(
-          PlayerStateData value, $Res Function(PlayerStateData) then) =
-      _$PlayerStateDataCopyWithImpl<$Res>;
+abstract class $PlayerDataCopyWith<$Res> implements $PlayerStateCopyWith<$Res> {
+  factory $PlayerDataCopyWith(
+          PlayerData value, $Res Function(PlayerData) then) =
+      _$PlayerDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {String currentBoard,
@@ -130,15 +179,13 @@ abstract class $PlayerStateDataCopyWith<$Res>
 }
 
 /// @nodoc
-class _$PlayerStateDataCopyWithImpl<$Res>
-    extends _$PlayerStateCopyWithImpl<$Res>
-    implements $PlayerStateDataCopyWith<$Res> {
-  _$PlayerStateDataCopyWithImpl(
-      PlayerStateData _value, $Res Function(PlayerStateData) _then)
-      : super(_value, (v) => _then(v as PlayerStateData));
+class _$PlayerDataCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
+    implements $PlayerDataCopyWith<$Res> {
+  _$PlayerDataCopyWithImpl(PlayerData _value, $Res Function(PlayerData) _then)
+      : super(_value, (v) => _then(v as PlayerData));
 
   @override
-  PlayerStateData get _value => super._value as PlayerStateData;
+  PlayerData get _value => super._value as PlayerData;
 
   @override
   $Res call({
@@ -148,7 +195,7 @@ class _$PlayerStateDataCopyWithImpl<$Res>
     Object? affectedActions = freezed,
     Object? usedActions = freezed,
   }) {
-    return _then(PlayerStateData(
+    return _then(PlayerData(
       currentBoard: currentBoard == freezed
           ? _value.currentBoard
           : currentBoard // ignore: cast_nullable_to_non_nullable
@@ -175,16 +222,16 @@ class _$PlayerStateDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PlayerStateData implements PlayerStateData {
-  _$PlayerStateData(
+class _$PlayerData implements PlayerData {
+  _$PlayerData(
       {required this.currentBoard,
       required this.color,
       required this.name,
       required this.affectedActions,
       required this.usedActions});
 
-  factory _$PlayerStateData.fromJson(Map<String, dynamic> json) =>
-      _$$PlayerStateDataFromJson(json);
+  factory _$PlayerData.fromJson(Map<String, dynamic> json) =>
+      _$$PlayerDataFromJson(json);
 
   @override
   final String currentBoard;
@@ -199,14 +246,14 @@ class _$PlayerStateData implements PlayerStateData {
 
   @override
   String toString() {
-    return 'PlayerState(currentBoard: $currentBoard, color: $color, name: $name, affectedActions: $affectedActions, usedActions: $usedActions)';
+    return 'PlayerState.data(currentBoard: $currentBoard, color: $color, name: $name, affectedActions: $affectedActions, usedActions: $usedActions)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is PlayerStateData &&
+            other is PlayerData &&
             const DeepCollectionEquality()
                 .equals(other.currentBoard, currentBoard) &&
             const DeepCollectionEquality().equals(other.color, color) &&
@@ -228,25 +275,99 @@ class _$PlayerStateData implements PlayerStateData {
 
   @JsonKey(ignore: true)
   @override
-  $PlayerStateDataCopyWith<PlayerStateData> get copyWith =>
-      _$PlayerStateDataCopyWithImpl<PlayerStateData>(this, _$identity);
+  $PlayerDataCopyWith<PlayerData> get copyWith =>
+      _$PlayerDataCopyWithImpl<PlayerData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String currentBoard,
+            PlayerColors color,
+            String name,
+            Map<String, SlidepartyActions> affectedActions,
+            List<SlidepartyActions> usedActions)
+        data,
+  }) {
+    return data(currentBoard, color, name, affectedActions, usedActions);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(
+            String currentBoard,
+            PlayerColors color,
+            String name,
+            Map<String, SlidepartyActions> affectedActions,
+            List<SlidepartyActions> usedActions)?
+        data,
+  }) {
+    return data?.call(currentBoard, color, name, affectedActions, usedActions);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String currentBoard,
+            PlayerColors color,
+            String name,
+            Map<String, SlidepartyActions> affectedActions,
+            List<SlidepartyActions> usedActions)?
+        data,
+    required TResult orElse(),
+  }) {
+    if (data != null) {
+      return data(currentBoard, color, name, affectedActions, usedActions);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PlayerData value) data,
+  }) {
+    return data(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(PlayerData value)? data,
+  }) {
+    return data?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PlayerData value)? data,
+    required TResult orElse(),
+  }) {
+    if (data != null) {
+      return data(this);
+    }
+    return orElse();
+  }
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlayerStateDataToJson(this);
+    return _$$PlayerDataToJson(this);
   }
 }
 
-abstract class PlayerStateData implements PlayerState {
-  factory PlayerStateData(
+abstract class PlayerData implements PlayerState {
+  factory PlayerData(
       {required String currentBoard,
       required PlayerColors color,
       required String name,
       required Map<String, SlidepartyActions> affectedActions,
-      required List<SlidepartyActions> usedActions}) = _$PlayerStateData;
+      required List<SlidepartyActions> usedActions}) = _$PlayerData;
 
-  factory PlayerStateData.fromJson(Map<String, dynamic> json) =
-      _$PlayerStateData.fromJson;
+  factory PlayerData.fromJson(Map<String, dynamic> json) =
+      _$PlayerData.fromJson;
 
   @override
   String get currentBoard;
@@ -260,6 +381,6 @@ abstract class PlayerStateData implements PlayerState {
   List<SlidepartyActions> get usedActions;
   @override
   @JsonKey(ignore: true)
-  $PlayerStateDataCopyWith<PlayerStateData> get copyWith =>
+  $PlayerDataCopyWith<PlayerData> get copyWith =>
       throw _privateConstructorUsedError;
 }

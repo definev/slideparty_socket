@@ -1,19 +1,19 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:slideparty_socket/src/common/player_colors.dart';
-import 'package:slideparty_socket/src/common/slideparty_actions.dart';
+import 'package:slideparty_socket/src/common/model/player_colors.dart';
+import 'package:slideparty_socket/src/common/model/slideparty_actions.dart';
 
 part 'player_state.freezed.dart';
 part 'player_state.g.dart';
 
 @freezed
 class PlayerState with _$PlayerState {
-  factory PlayerState({
+  factory PlayerState.data({
     required String currentBoard,
     required PlayerColors color,
     required String name,
     required Map<String, SlidepartyActions> affectedActions,
     required List<SlidepartyActions> usedActions,
-  }) = PlayerStateData;
+  }) = PlayerData;
 
   factory PlayerState.fromJson(Map<String, dynamic> json) =>
       _$PlayerStateFromJson(json);
@@ -25,8 +25,7 @@ class MapPlayerStateConverter
 
   @override
   Map<String, PlayerState> fromJson(Map<String, dynamic> json) {
-    return json
-        .map((key, value) => MapEntry(key, PlayerStateData.fromJson(value)));
+    return json.map((key, value) => MapEntry(key, PlayerData.fromJson(value)));
   }
 
   @override
