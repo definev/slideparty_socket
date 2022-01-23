@@ -6,6 +6,7 @@ part 'server_state.g.dart';
 
 @freezed
 class ServerState with _$ServerState {
+  factory ServerState.wrongBoardSize() = WrongBoardSize;
   factory ServerState.roomData({
     required String code,
     @MapPlayerStateConverter() //
@@ -14,4 +15,10 @@ class ServerState with _$ServerState {
   factory ServerState.receiveId(String userId) = ReceiveId;
   factory ServerState.fromJson(Map<String, dynamic> json) =>
       _$ServerStateFromJson(json);
+}
+
+abstract class ServerStateType {
+  static const roomData = 'roomData';
+  static const receiveId = 'receiveId';
+  static const wrongBoardSize = 'wrongBoardSize';
 }

@@ -6,6 +6,16 @@ part of 'server_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$WrongBoardSize _$$WrongBoardSizeFromJson(Map<String, dynamic> json) =>
+    _$WrongBoardSize(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$WrongBoardSizeToJson(_$WrongBoardSize instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
 _$RoomData _$$RoomDataFromJson(Map<String, dynamic> json) => _$RoomData(
       code: json['code'] as String,
       players: const MapPlayerStateConverter()

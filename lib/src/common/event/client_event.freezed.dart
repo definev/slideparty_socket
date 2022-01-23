@@ -14,6 +14,21 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+ClientEvent _$ClientEventFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'sendName':
+      return SendName.fromJson(json);
+    case 'sendBoard':
+      return SendBoard.fromJson(json);
+    case 'sendAction':
+      return SendAction.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'ClientEvent',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
 /// @nodoc
 class _$ClientEventTearOff {
   const _$ClientEventTearOff();
@@ -35,6 +50,10 @@ class _$ClientEventTearOff {
       affectedPlayerId,
       action,
     );
+  }
+
+  ClientEvent fromJson(Map<String, Object?> json) {
+    return ClientEvent.fromJson(json);
   }
 }
 
@@ -90,6 +109,7 @@ mixin _$ClientEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -138,12 +158,18 @@ class _$SendNameCopyWithImpl<$Res> extends _$ClientEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$SendName implements SendName {
-  const _$SendName(this.name);
+  const _$SendName(this.name, {String? $type}) : $type = $type ?? 'sendName';
+
+  factory _$SendName.fromJson(Map<String, dynamic> json) =>
+      _$$SendNameFromJson(json);
 
   @override
   final String name;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -237,10 +263,17 @@ class _$SendName implements SendName {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SendNameToJson(this);
+  }
 }
 
 abstract class SendName implements ClientEvent {
   const factory SendName(String name) = _$SendName;
+
+  factory SendName.fromJson(Map<String, dynamic> json) = _$SendName.fromJson;
 
   String get name;
   @JsonKey(ignore: true)
@@ -278,12 +311,18 @@ class _$SendBoardCopyWithImpl<$Res> extends _$ClientEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$SendBoard implements SendBoard {
-  const _$SendBoard(this.board);
+  const _$SendBoard(this.board, {String? $type}) : $type = $type ?? 'sendBoard';
+
+  factory _$SendBoard.fromJson(Map<String, dynamic> json) =>
+      _$$SendBoardFromJson(json);
 
   @override
   final List<int> board;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -377,10 +416,17 @@ class _$SendBoard implements SendBoard {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SendBoardToJson(this);
+  }
 }
 
 abstract class SendBoard implements ClientEvent {
   const factory SendBoard(List<int> board) = _$SendBoard;
+
+  factory SendBoard.fromJson(Map<String, dynamic> json) = _$SendBoard.fromJson;
 
   List<int> get board;
   @JsonKey(ignore: true)
@@ -424,14 +470,21 @@ class _$SendActionCopyWithImpl<$Res> extends _$ClientEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$SendAction implements SendAction {
-  const _$SendAction(this.affectedPlayerId, this.action);
+  const _$SendAction(this.affectedPlayerId, this.action, {String? $type})
+      : $type = $type ?? 'sendAction';
+
+  factory _$SendAction.fromJson(Map<String, dynamic> json) =>
+      _$$SendActionFromJson(json);
 
   @override
   final String affectedPlayerId;
   @override
   final SlidepartyActions action;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -529,11 +582,19 @@ class _$SendAction implements SendAction {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SendActionToJson(this);
+  }
 }
 
 abstract class SendAction implements ClientEvent {
   const factory SendAction(String affectedPlayerId, SlidepartyActions action) =
       _$SendAction;
+
+  factory SendAction.fromJson(Map<String, dynamic> json) =
+      _$SendAction.fromJson;
 
   String get affectedPlayerId;
   SlidepartyActions get action;
