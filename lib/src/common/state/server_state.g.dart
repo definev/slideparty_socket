@@ -6,6 +6,23 @@ part of 'server_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$Waiting _$$WaitingFromJson(Map<String, dynamic> json) => _$Waiting(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$WaitingToJson(_$Waiting instance) => <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$Connected _$$ConnectedFromJson(Map<String, dynamic> json) => _$Connected(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ConnectedToJson(_$Connected instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
 _$WrongBoardSize _$$WrongBoardSizeFromJson(Map<String, dynamic> json) =>
     _$WrongBoardSize(
       $type: json['runtimeType'] as String?,
@@ -30,20 +47,14 @@ Map<String, dynamic> _$$RoomDataToJson(_$RoomData instance) =>
       'runtimeType': instance.$type,
     };
 
-_$Waiting _$$WaitingFromJson(Map<String, dynamic> json) => _$Waiting(
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$WaitingToJson(_$Waiting instance) => <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
-
 _$RoomFull _$$RoomFullFromJson(Map<String, dynamic> json) => _$RoomFull(
+      RoomData.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$RoomFullToJson(_$RoomFull instance) =>
     <String, dynamic>{
+      'data': instance.data,
       'runtimeType': instance.$type,
     };
 

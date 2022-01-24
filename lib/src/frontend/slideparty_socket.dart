@@ -38,12 +38,16 @@ class SlidepartySocket {
         if (event is String) {
           final json = jsonDecode(event);
           switch (json['type']) {
+            case ServerStateType.waiting:
+              return Waiting();
+            case ServerStateType.connected:
+              return Connected();
             case ServerStateType.roomData:
               return RoomData.fromJson(json['payload']);
-            case ServerStateType.receiveId:
-              return ReceiveId.fromJson(json['payload']);
             case ServerStateType.wrongBoardSize:
               return WrongBoardSize();
+            case ServerStateType.roomFull:
+              return RoomFull.fromJson(json['payload']);
             default:
               throw Exception('Unknown state type: ${json['type']}');
           }
