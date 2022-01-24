@@ -1,12 +1,16 @@
 import 'dart:convert';
 
 import 'package:slideparty_socket/src/common/event/client_event.dart';
+import 'package:slideparty_socket/src/common/model/room_info.dart';
 import 'package:slideparty_socket/src/common/state/server_state.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class SlidepartySocket {
-  SlidepartySocket(String url)
-      : _channel = WebSocketChannel.connect(Uri.parse(url));
+  SlidepartySocket(RoomInfo info)
+      : _channel = WebSocketChannel.connect(
+          Uri.parse(
+              'ws://slidepartyserver.herokuapp.com/ws/${info.boardSize}/${info.roomCode}'),
+        );
 
   final WebSocketChannel _channel;
 
