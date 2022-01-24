@@ -13,3 +13,4 @@ export 'src/common/state/server_state.dart'
         $ReceiveIdCopyWith,
         $RoomDataCopyWith,
         $WrongBoardSizeCopyWith;
+export 'src/common/model/room_info.dart';
