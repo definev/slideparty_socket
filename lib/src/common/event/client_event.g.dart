@@ -6,6 +6,17 @@ part of 'client_event.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$JoinRoom _$$JoinRoomFromJson(Map<String, dynamic> json) => _$JoinRoom(
+      json['userId'] as String,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$JoinRoomToJson(_$JoinRoom instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+      'runtimeType': instance.$type,
+    };
+
 _$SendName _$$SendNameFromJson(Map<String, dynamic> json) => _$SendName(
       json['name'] as String,
       $type: json['runtimeType'] as String?,

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:slideparty_socket/src/common/event/client_event.dart';
 import 'package:slideparty_socket/src/common/model/room_info.dart';
 import 'package:slideparty_socket/src/common/state/server_state.dart';
+import 'package:uuid/uuid.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class SlidepartySocket {
@@ -10,12 +11,16 @@ class SlidepartySocket {
       : _channel = WebSocketChannel.connect(
           Uri.parse(
               'ws://slidepartyserver.herokuapp.com/ws/${info.boardSize}/${info.roomCode}'),
-        );
+        ) {
+    send(ClientEvent.joinRoom(userId));
+  }
 
   final WebSocketChannel _channel;
+  final String userId = Uuid().v4();
 
   Future<void> send(ClientEvent event) async {
     final eventType = event.map(
+      joinRoom: (event) => ClientEventType.joinRoom,
       sendName: (event) => ClientEventType.sendName,
       sendBoard: (event) => ClientEventType.sendBoard,
       sendAction: (event) => ClientEventType.sendAction,
