@@ -9,10 +9,12 @@ class ServerState with _$ServerState {
   factory ServerState.wrongBoardSize() = WrongBoardSize;
   factory ServerState.roomData({
     required String code,
-    @MapPlayerStateConverter() //
-        required Map<String, PlayerState> players,
+    @MapPlayerStateConverter() required Map<String, PlayerState> players,
   }) = RoomData;
+  factory ServerState.waiting() = Waiting;
+  factory ServerState.roomFull() = RoomFull;
   factory ServerState.receiveId(String userId) = ReceiveId;
+
   factory ServerState.fromJson(Map<String, dynamic> json) =>
       _$ServerStateFromJson(json);
 }

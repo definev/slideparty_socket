@@ -30,6 +30,23 @@ Map<String, dynamic> _$$RoomDataToJson(_$RoomData instance) =>
       'runtimeType': instance.$type,
     };
 
+_$Waiting _$$WaitingFromJson(Map<String, dynamic> json) => _$Waiting(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$WaitingToJson(_$Waiting instance) => <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$RoomFull _$$RoomFullFromJson(Map<String, dynamic> json) => _$RoomFull(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$RoomFullToJson(_$RoomFull instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
 _$ReceiveId _$$ReceiveIdFromJson(Map<String, dynamic> json) => _$ReceiveId(
       json['userId'] as String,
       $type: json['runtimeType'] as String?,
