@@ -7,10 +7,10 @@ import 'package:uuid/uuid.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class SlidepartySocket {
-  SlidepartySocket(RoomInfo info)
+  SlidepartySocket(RoomInfo info, [bool debug = false])
       : _channel = WebSocketChannel.connect(
           Uri.parse(
-              'ws://slidepartyserver.herokuapp.com/ws/${info.boardSize}/${info.roomCode}'),
+              'ws://${debug ? 'localhost:9999' : 'slidepartyserver.herokuapp.com'}/ws/${info.boardSize}/${info.roomCode}'),
         ) {
     send(ClientEvent.joinRoom(userId));
   }
