@@ -10,7 +10,6 @@ export 'src/common/event/client_event.dart'
 export 'src/common/state/server_state.dart'
     hide
         $ServerStateCopyWith,
-        $ReceiveIdCopyWith,
         $RoomDataCopyWith,
         $WrongBoardSizeCopyWith;
 export 'src/common/model/room_info.dart';
