@@ -13,7 +13,7 @@ class ServerState with _$ServerState {
     required String code,
     @MapPlayerStateConverter() required Map<String, PlayerState> players,
   }) = RoomData;
-  factory ServerState.roomFull(RoomData data) = RoomFull;
+  factory ServerState.roomFull() = RoomFull;
   factory ServerState.fromJson(Map<String, dynamic> json) =>
       _$ServerStateFromJson(json);
 }

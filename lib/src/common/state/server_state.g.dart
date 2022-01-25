@@ -48,23 +48,10 @@ Map<String, dynamic> _$$RoomDataToJson(_$RoomData instance) =>
     };
 
 _$RoomFull _$$RoomFullFromJson(Map<String, dynamic> json) => _$RoomFull(
-      RoomData.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$RoomFullToJson(_$RoomFull instance) =>
     <String, dynamic>{
-      'data': instance.data,
-      'runtimeType': instance.$type,
-    };
-
-_$ReceiveId _$$ReceiveIdFromJson(Map<String, dynamic> json) => _$ReceiveId(
-      json['userId'] as String,
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$ReceiveIdToJson(_$ReceiveId instance) =>
-    <String, dynamic>{
-      'userId': instance.userId,
       'runtimeType': instance.$type,
     };

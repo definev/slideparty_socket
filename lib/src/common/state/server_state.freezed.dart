@@ -26,8 +26,6 @@ ServerState _$ServerStateFromJson(Map<String, dynamic> json) {
       return RoomData.fromJson(json);
     case 'roomFull':
       return RoomFull.fromJson(json);
-    case 'receiveId':
-      return ReceiveId.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'ServerState',
@@ -60,16 +58,8 @@ class _$ServerStateTearOff {
     );
   }
 
-  RoomFull roomFull(RoomData data) {
-    return RoomFull(
-      data,
-    );
-  }
-
-  ReceiveId receiveId(String userId) {
-    return ReceiveId(
-      userId,
-    );
+  RoomFull roomFull() {
+    return RoomFull();
   }
 
   ServerState fromJson(Map<String, Object?> json) {
@@ -90,8 +80,7 @@ mixin _$ServerState {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(RoomData data) roomFull,
-    required TResult Function(String userId) receiveId,
+    required TResult Function() roomFull,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -102,8 +91,7 @@ mixin _$ServerState {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
+    TResult Function()? roomFull,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -114,8 +102,7 @@ mixin _$ServerState {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
+    TResult Function()? roomFull,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,7 +113,6 @@ mixin _$ServerState {
     required TResult Function(WrongBoardSize value) wrongBoardSize,
     required TResult Function(RoomData value) roomData,
     required TResult Function(RoomFull value) roomFull,
-    required TResult Function(ReceiveId value) receiveId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -136,7 +122,6 @@ mixin _$ServerState {
     TResult Function(WrongBoardSize value)? wrongBoardSize,
     TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -146,7 +131,6 @@ mixin _$ServerState {
     TResult Function(WrongBoardSize value)? wrongBoardSize,
     TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -219,8 +203,7 @@ class _$Waiting implements Waiting {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(RoomData data) roomFull,
-    required TResult Function(String userId) receiveId,
+    required TResult Function() roomFull,
   }) {
     return waiting();
   }
@@ -234,8 +217,7 @@ class _$Waiting implements Waiting {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
+    TResult Function()? roomFull,
   }) {
     return waiting?.call();
   }
@@ -249,8 +231,7 @@ class _$Waiting implements Waiting {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
+    TResult Function()? roomFull,
     required TResult orElse(),
   }) {
     if (waiting != null) {
@@ -267,7 +248,6 @@ class _$Waiting implements Waiting {
     required TResult Function(WrongBoardSize value) wrongBoardSize,
     required TResult Function(RoomData value) roomData,
     required TResult Function(RoomFull value) roomFull,
-    required TResult Function(ReceiveId value) receiveId,
   }) {
     return waiting(this);
   }
@@ -280,7 +260,6 @@ class _$Waiting implements Waiting {
     TResult Function(WrongBoardSize value)? wrongBoardSize,
     TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
   }) {
     return waiting?.call(this);
   }
@@ -293,7 +272,6 @@ class _$Waiting implements Waiting {
     TResult Function(WrongBoardSize value)? wrongBoardSize,
     TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
     required TResult orElse(),
   }) {
     if (waiting != null) {
@@ -364,8 +342,7 @@ class _$Connected implements Connected {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(RoomData data) roomFull,
-    required TResult Function(String userId) receiveId,
+    required TResult Function() roomFull,
   }) {
     return connected();
   }
@@ -379,8 +356,7 @@ class _$Connected implements Connected {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
+    TResult Function()? roomFull,
   }) {
     return connected?.call();
   }
@@ -394,8 +370,7 @@ class _$Connected implements Connected {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
+    TResult Function()? roomFull,
     required TResult orElse(),
   }) {
     if (connected != null) {
@@ -412,7 +387,6 @@ class _$Connected implements Connected {
     required TResult Function(WrongBoardSize value) wrongBoardSize,
     required TResult Function(RoomData value) roomData,
     required TResult Function(RoomFull value) roomFull,
-    required TResult Function(ReceiveId value) receiveId,
   }) {
     return connected(this);
   }
@@ -425,7 +399,6 @@ class _$Connected implements Connected {
     TResult Function(WrongBoardSize value)? wrongBoardSize,
     TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
   }) {
     return connected?.call(this);
   }
@@ -438,7 +411,6 @@ class _$Connected implements Connected {
     TResult Function(WrongBoardSize value)? wrongBoardSize,
     TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
     required TResult orElse(),
   }) {
     if (connected != null) {
@@ -511,8 +483,7 @@ class _$WrongBoardSize implements WrongBoardSize {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(RoomData data) roomFull,
-    required TResult Function(String userId) receiveId,
+    required TResult Function() roomFull,
   }) {
     return wrongBoardSize();
   }
@@ -526,8 +497,7 @@ class _$WrongBoardSize implements WrongBoardSize {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
+    TResult Function()? roomFull,
   }) {
     return wrongBoardSize?.call();
   }
@@ -541,8 +511,7 @@ class _$WrongBoardSize implements WrongBoardSize {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
+    TResult Function()? roomFull,
     required TResult orElse(),
   }) {
     if (wrongBoardSize != null) {
@@ -559,7 +528,6 @@ class _$WrongBoardSize implements WrongBoardSize {
     required TResult Function(WrongBoardSize value) wrongBoardSize,
     required TResult Function(RoomData value) roomData,
     required TResult Function(RoomFull value) roomFull,
-    required TResult Function(ReceiveId value) receiveId,
   }) {
     return wrongBoardSize(this);
   }
@@ -572,7 +540,6 @@ class _$WrongBoardSize implements WrongBoardSize {
     TResult Function(WrongBoardSize value)? wrongBoardSize,
     TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
   }) {
     return wrongBoardSize?.call(this);
   }
@@ -585,7 +552,6 @@ class _$WrongBoardSize implements WrongBoardSize {
     TResult Function(WrongBoardSize value)? wrongBoardSize,
     TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
     required TResult orElse(),
   }) {
     if (wrongBoardSize != null) {
@@ -698,8 +664,7 @@ class _$RoomData implements RoomData {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(RoomData data) roomFull,
-    required TResult Function(String userId) receiveId,
+    required TResult Function() roomFull,
   }) {
     return roomData(code, players);
   }
@@ -713,8 +678,7 @@ class _$RoomData implements RoomData {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
+    TResult Function()? roomFull,
   }) {
     return roomData?.call(code, players);
   }
@@ -728,8 +692,7 @@ class _$RoomData implements RoomData {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
+    TResult Function()? roomFull,
     required TResult orElse(),
   }) {
     if (roomData != null) {
@@ -746,7 +709,6 @@ class _$RoomData implements RoomData {
     required TResult Function(WrongBoardSize value) wrongBoardSize,
     required TResult Function(RoomData value) roomData,
     required TResult Function(RoomFull value) roomFull,
-    required TResult Function(ReceiveId value) receiveId,
   }) {
     return roomData(this);
   }
@@ -759,7 +721,6 @@ class _$RoomData implements RoomData {
     TResult Function(WrongBoardSize value)? wrongBoardSize,
     TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
   }) {
     return roomData?.call(this);
   }
@@ -772,7 +733,6 @@ class _$RoomData implements RoomData {
     TResult Function(WrongBoardSize value)? wrongBoardSize,
     TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
     required TResult orElse(),
   }) {
     if (roomData != null) {
@@ -807,7 +767,6 @@ abstract class RoomData implements ServerState {
 abstract class $RoomFullCopyWith<$Res> {
   factory $RoomFullCopyWith(RoomFull value, $Res Function(RoomFull) then) =
       _$RoomFullCopyWithImpl<$Res>;
-  $Res call({RoomData data});
 }
 
 /// @nodoc
@@ -818,55 +777,32 @@ class _$RoomFullCopyWithImpl<$Res> extends _$ServerStateCopyWithImpl<$Res>
 
   @override
   RoomFull get _value => super._value as RoomFull;
-
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(RoomFull(
-      data == freezed
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RoomData,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$RoomFull implements RoomFull {
-  _$RoomFull(this.data, {String? $type}) : $type = $type ?? 'roomFull';
+  _$RoomFull({String? $type}) : $type = $type ?? 'roomFull';
 
   factory _$RoomFull.fromJson(Map<String, dynamic> json) =>
       _$$RoomFullFromJson(json);
-
-  @override
-  final RoomData data;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'ServerState.roomFull(data: $data)';
+    return 'ServerState.roomFull()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is RoomFull &&
-            const DeepCollectionEquality().equals(other.data, data));
+        (other.runtimeType == runtimeType && other is RoomFull);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
-
-  @JsonKey(ignore: true)
-  @override
-  $RoomFullCopyWith<RoomFull> get copyWith =>
-      _$RoomFullCopyWithImpl<RoomFull>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -877,10 +813,9 @@ class _$RoomFull implements RoomFull {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(RoomData data) roomFull,
-    required TResult Function(String userId) receiveId,
+    required TResult Function() roomFull,
   }) {
-    return roomFull(data);
+    return roomFull();
   }
 
   @override
@@ -892,10 +827,9 @@ class _$RoomFull implements RoomFull {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
+    TResult Function()? roomFull,
   }) {
-    return roomFull?.call(data);
+    return roomFull?.call();
   }
 
   @override
@@ -907,12 +841,11 @@ class _$RoomFull implements RoomFull {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
+    TResult Function()? roomFull,
     required TResult orElse(),
   }) {
     if (roomFull != null) {
-      return roomFull(data);
+      return roomFull();
     }
     return orElse();
   }
@@ -925,7 +858,6 @@ class _$RoomFull implements RoomFull {
     required TResult Function(WrongBoardSize value) wrongBoardSize,
     required TResult Function(RoomData value) roomData,
     required TResult Function(RoomFull value) roomFull,
-    required TResult Function(ReceiveId value) receiveId,
   }) {
     return roomFull(this);
   }
@@ -938,7 +870,6 @@ class _$RoomFull implements RoomFull {
     TResult Function(WrongBoardSize value)? wrongBoardSize,
     TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
   }) {
     return roomFull?.call(this);
   }
@@ -951,7 +882,6 @@ class _$RoomFull implements RoomFull {
     TResult Function(WrongBoardSize value)? wrongBoardSize,
     TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
     required TResult orElse(),
   }) {
     if (roomFull != null) {
@@ -967,186 +897,7 @@ class _$RoomFull implements RoomFull {
 }
 
 abstract class RoomFull implements ServerState {
-  factory RoomFull(RoomData data) = _$RoomFull;
+  factory RoomFull() = _$RoomFull;
 
   factory RoomFull.fromJson(Map<String, dynamic> json) = _$RoomFull.fromJson;
-
-  RoomData get data;
-  @JsonKey(ignore: true)
-  $RoomFullCopyWith<RoomFull> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ReceiveIdCopyWith<$Res> {
-  factory $ReceiveIdCopyWith(ReceiveId value, $Res Function(ReceiveId) then) =
-      _$ReceiveIdCopyWithImpl<$Res>;
-  $Res call({String userId});
-}
-
-/// @nodoc
-class _$ReceiveIdCopyWithImpl<$Res> extends _$ServerStateCopyWithImpl<$Res>
-    implements $ReceiveIdCopyWith<$Res> {
-  _$ReceiveIdCopyWithImpl(ReceiveId _value, $Res Function(ReceiveId) _then)
-      : super(_value, (v) => _then(v as ReceiveId));
-
-  @override
-  ReceiveId get _value => super._value as ReceiveId;
-
-  @override
-  $Res call({
-    Object? userId = freezed,
-  }) {
-    return _then(ReceiveId(
-      userId == freezed
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ReceiveId implements ReceiveId {
-  _$ReceiveId(this.userId, {String? $type}) : $type = $type ?? 'receiveId';
-
-  factory _$ReceiveId.fromJson(Map<String, dynamic> json) =>
-      _$$ReceiveIdFromJson(json);
-
-  @override
-  final String userId;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'ServerState.receiveId(userId: $userId)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ReceiveId &&
-            const DeepCollectionEquality().equals(other.userId, userId));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(userId));
-
-  @JsonKey(ignore: true)
-  @override
-  $ReceiveIdCopyWith<ReceiveId> get copyWith =>
-      _$ReceiveIdCopyWithImpl<ReceiveId>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() waiting,
-    required TResult Function() connected,
-    required TResult Function() wrongBoardSize,
-    required TResult Function(String code,
-            @MapPlayerStateConverter() Map<String, PlayerState> players)
-        roomData,
-    required TResult Function(RoomData data) roomFull,
-    required TResult Function(String userId) receiveId,
-  }) {
-    return receiveId(userId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? waiting,
-    TResult Function()? connected,
-    TResult Function()? wrongBoardSize,
-    TResult Function(String code,
-            @MapPlayerStateConverter() Map<String, PlayerState> players)?
-        roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
-  }) {
-    return receiveId?.call(userId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? waiting,
-    TResult Function()? connected,
-    TResult Function()? wrongBoardSize,
-    TResult Function(String code,
-            @MapPlayerStateConverter() Map<String, PlayerState> players)?
-        roomData,
-    TResult Function(RoomData data)? roomFull,
-    TResult Function(String userId)? receiveId,
-    required TResult orElse(),
-  }) {
-    if (receiveId != null) {
-      return receiveId(userId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Waiting value) waiting,
-    required TResult Function(Connected value) connected,
-    required TResult Function(WrongBoardSize value) wrongBoardSize,
-    required TResult Function(RoomData value) roomData,
-    required TResult Function(RoomFull value) roomFull,
-    required TResult Function(ReceiveId value) receiveId,
-  }) {
-    return receiveId(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Waiting value)? waiting,
-    TResult Function(Connected value)? connected,
-    TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
-    TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
-  }) {
-    return receiveId?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Waiting value)? waiting,
-    TResult Function(Connected value)? connected,
-    TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
-    TResult Function(RoomFull value)? roomFull,
-    TResult Function(ReceiveId value)? receiveId,
-    required TResult orElse(),
-  }) {
-    if (receiveId != null) {
-      return receiveId(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ReceiveIdToJson(this);
-  }
-}
-
-abstract class ReceiveId implements ServerState {
-  factory ReceiveId(String userId) = _$ReceiveId;
-
-  factory ReceiveId.fromJson(Map<String, dynamic> json) = _$ReceiveId.fromJson;
-
-  String get userId;
-  @JsonKey(ignore: true)
-  $ReceiveIdCopyWith<ReceiveId> get copyWith =>
-      throw _privateConstructorUsedError;
 }
