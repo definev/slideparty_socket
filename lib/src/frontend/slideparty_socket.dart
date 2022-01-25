@@ -10,7 +10,7 @@ class SlidepartySocket {
   SlidepartySocket(RoomInfo info, [bool debug = false])
       : _channel = WebSocketChannel.connect(
           Uri.parse(
-              'ws://${debug ? 'localhost:9999' : 'slidepartyserver.herokuapp.com'}/ws/${info.boardSize}/${info.roomCode}'),
+              'wss://${debug ? 'localhost:9999' : 'slidepartyserver.herokuapp.com'}/ws/${info.boardSize}/${info.roomCode}'),
         ) {
     send(ClientEvent.joinRoom(userId));
   }
