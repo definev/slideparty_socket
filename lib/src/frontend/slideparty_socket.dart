@@ -34,7 +34,7 @@ class SlidepartySocket {
 
   Future<void> close() async => await _channel.sink.close();
 
-  Stream<ServerState> get state => _channel.stream.map((event) {
+  Stream<ServerState> get state => _channel.stream.distinct().map((event) {
         if (event is String) {
           final json = jsonDecode(event);
           switch (json['type']) {
