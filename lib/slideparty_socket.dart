@@ -13,3 +13,4 @@ export 'src/common/state/server_state.dart'
         $RoomDataCopyWith,
         $WrongBoardSizeCopyWith;
 export 'src/common/model/room_info.dart';
+export 'src/common/model/slideparty_actions.dart';
