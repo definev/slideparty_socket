@@ -10,7 +10,6 @@ class PlayerState with _$PlayerState {
   factory PlayerState.data({
     required List<int> currentBoard,
     required PlayerColors color,
-    required String name,
     required Map<String, SlidepartyActions> affectedActions,
     required List<SlidepartyActions> usedActions,
   }) = PlayerData;
