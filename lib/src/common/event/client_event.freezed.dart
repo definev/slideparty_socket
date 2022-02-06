@@ -18,8 +18,6 @@ ClientEvent _$ClientEventFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'joinRoom':
       return JoinRoom.fromJson(json);
-    case 'sendName':
-      return SendName.fromJson(json);
     case 'sendBoard':
       return SendBoard.fromJson(json);
     case 'sendAction':
@@ -38,12 +36,6 @@ class _$ClientEventTearOff {
   JoinRoom joinRoom(String userId) {
     return JoinRoom(
       userId,
-    );
-  }
-
-  SendName sendName(String name) {
-    return SendName(
-      name,
     );
   }
 
@@ -73,7 +65,6 @@ mixin _$ClientEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) joinRoom,
-    required TResult Function(String name) sendName,
     required TResult Function(List<int> board) sendBoard,
     required TResult Function(String affectedPlayerId, SlidepartyActions action)
         sendAction,
@@ -82,7 +73,6 @@ mixin _$ClientEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String userId)? joinRoom,
-    TResult Function(String name)? sendName,
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
@@ -91,7 +81,6 @@ mixin _$ClientEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? joinRoom,
-    TResult Function(String name)? sendName,
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
@@ -101,7 +90,6 @@ mixin _$ClientEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(JoinRoom value) joinRoom,
-    required TResult Function(SendName value) sendName,
     required TResult Function(SendBoard value) sendBoard,
     required TResult Function(SendAction value) sendAction,
   }) =>
@@ -109,7 +97,6 @@ mixin _$ClientEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(JoinRoom value)? joinRoom,
-    TResult Function(SendName value)? sendName,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
   }) =>
@@ -117,7 +104,6 @@ mixin _$ClientEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(JoinRoom value)? joinRoom,
-    TResult Function(SendName value)? sendName,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
     required TResult orElse(),
@@ -211,7 +197,6 @@ class _$JoinRoom implements JoinRoom {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) joinRoom,
-    required TResult Function(String name) sendName,
     required TResult Function(List<int> board) sendBoard,
     required TResult Function(String affectedPlayerId, SlidepartyActions action)
         sendAction,
@@ -223,7 +208,6 @@ class _$JoinRoom implements JoinRoom {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String userId)? joinRoom,
-    TResult Function(String name)? sendName,
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
@@ -235,7 +219,6 @@ class _$JoinRoom implements JoinRoom {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? joinRoom,
-    TResult Function(String name)? sendName,
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
@@ -251,7 +234,6 @@ class _$JoinRoom implements JoinRoom {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(JoinRoom value) joinRoom,
-    required TResult Function(SendName value) sendName,
     required TResult Function(SendBoard value) sendBoard,
     required TResult Function(SendAction value) sendAction,
   }) {
@@ -262,7 +244,6 @@ class _$JoinRoom implements JoinRoom {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(JoinRoom value)? joinRoom,
-    TResult Function(SendName value)? sendName,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
   }) {
@@ -273,7 +254,6 @@ class _$JoinRoom implements JoinRoom {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(JoinRoom value)? joinRoom,
-    TResult Function(SendName value)? sendName,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
     required TResult orElse(),
@@ -298,165 +278,6 @@ abstract class JoinRoom implements ClientEvent {
   String get userId;
   @JsonKey(ignore: true)
   $JoinRoomCopyWith<JoinRoom> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SendNameCopyWith<$Res> {
-  factory $SendNameCopyWith(SendName value, $Res Function(SendName) then) =
-      _$SendNameCopyWithImpl<$Res>;
-  $Res call({String name});
-}
-
-/// @nodoc
-class _$SendNameCopyWithImpl<$Res> extends _$ClientEventCopyWithImpl<$Res>
-    implements $SendNameCopyWith<$Res> {
-  _$SendNameCopyWithImpl(SendName _value, $Res Function(SendName) _then)
-      : super(_value, (v) => _then(v as SendName));
-
-  @override
-  SendName get _value => super._value as SendName;
-
-  @override
-  $Res call({
-    Object? name = freezed,
-  }) {
-    return _then(SendName(
-      name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$SendName implements SendName {
-  const _$SendName(this.name, {String? $type}) : $type = $type ?? 'sendName';
-
-  factory _$SendName.fromJson(Map<String, dynamic> json) =>
-      _$$SendNameFromJson(json);
-
-  @override
-  final String name;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'ClientEvent.sendName(name: $name)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is SendName &&
-            const DeepCollectionEquality().equals(other.name, name));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(name));
-
-  @JsonKey(ignore: true)
-  @override
-  $SendNameCopyWith<SendName> get copyWith =>
-      _$SendNameCopyWithImpl<SendName>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String userId) joinRoom,
-    required TResult Function(String name) sendName,
-    required TResult Function(List<int> board) sendBoard,
-    required TResult Function(String affectedPlayerId, SlidepartyActions action)
-        sendAction,
-  }) {
-    return sendName(name);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String userId)? joinRoom,
-    TResult Function(String name)? sendName,
-    TResult Function(List<int> board)? sendBoard,
-    TResult Function(String affectedPlayerId, SlidepartyActions action)?
-        sendAction,
-  }) {
-    return sendName?.call(name);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String userId)? joinRoom,
-    TResult Function(String name)? sendName,
-    TResult Function(List<int> board)? sendBoard,
-    TResult Function(String affectedPlayerId, SlidepartyActions action)?
-        sendAction,
-    required TResult orElse(),
-  }) {
-    if (sendName != null) {
-      return sendName(name);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(JoinRoom value) joinRoom,
-    required TResult Function(SendName value) sendName,
-    required TResult Function(SendBoard value) sendBoard,
-    required TResult Function(SendAction value) sendAction,
-  }) {
-    return sendName(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(JoinRoom value)? joinRoom,
-    TResult Function(SendName value)? sendName,
-    TResult Function(SendBoard value)? sendBoard,
-    TResult Function(SendAction value)? sendAction,
-  }) {
-    return sendName?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(JoinRoom value)? joinRoom,
-    TResult Function(SendName value)? sendName,
-    TResult Function(SendBoard value)? sendBoard,
-    TResult Function(SendAction value)? sendAction,
-    required TResult orElse(),
-  }) {
-    if (sendName != null) {
-      return sendName(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SendNameToJson(this);
-  }
-}
-
-abstract class SendName implements ClientEvent {
-  const factory SendName(String name) = _$SendName;
-
-  factory SendName.fromJson(Map<String, dynamic> json) = _$SendName.fromJson;
-
-  String get name;
-  @JsonKey(ignore: true)
-  $SendNameCopyWith<SendName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -529,7 +350,6 @@ class _$SendBoard implements SendBoard {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) joinRoom,
-    required TResult Function(String name) sendName,
     required TResult Function(List<int> board) sendBoard,
     required TResult Function(String affectedPlayerId, SlidepartyActions action)
         sendAction,
@@ -541,7 +361,6 @@ class _$SendBoard implements SendBoard {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String userId)? joinRoom,
-    TResult Function(String name)? sendName,
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
@@ -553,7 +372,6 @@ class _$SendBoard implements SendBoard {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? joinRoom,
-    TResult Function(String name)? sendName,
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
@@ -569,7 +387,6 @@ class _$SendBoard implements SendBoard {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(JoinRoom value) joinRoom,
-    required TResult Function(SendName value) sendName,
     required TResult Function(SendBoard value) sendBoard,
     required TResult Function(SendAction value) sendAction,
   }) {
@@ -580,7 +397,6 @@ class _$SendBoard implements SendBoard {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(JoinRoom value)? joinRoom,
-    TResult Function(SendName value)? sendName,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
   }) {
@@ -591,7 +407,6 @@ class _$SendBoard implements SendBoard {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(JoinRoom value)? joinRoom,
-    TResult Function(SendName value)? sendName,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
     required TResult orElse(),
@@ -701,7 +516,6 @@ class _$SendAction implements SendAction {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) joinRoom,
-    required TResult Function(String name) sendName,
     required TResult Function(List<int> board) sendBoard,
     required TResult Function(String affectedPlayerId, SlidepartyActions action)
         sendAction,
@@ -713,7 +527,6 @@ class _$SendAction implements SendAction {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String userId)? joinRoom,
-    TResult Function(String name)? sendName,
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
@@ -725,7 +538,6 @@ class _$SendAction implements SendAction {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? joinRoom,
-    TResult Function(String name)? sendName,
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
@@ -741,7 +553,6 @@ class _$SendAction implements SendAction {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(JoinRoom value) joinRoom,
-    required TResult Function(SendName value) sendName,
     required TResult Function(SendBoard value) sendBoard,
     required TResult Function(SendAction value) sendAction,
   }) {
@@ -752,7 +563,6 @@ class _$SendAction implements SendAction {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(JoinRoom value)? joinRoom,
-    TResult Function(SendName value)? sendName,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
   }) {
@@ -763,7 +573,6 @@ class _$SendAction implements SendAction {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(JoinRoom value)? joinRoom,
-    TResult Function(SendName value)? sendName,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
     required TResult orElse(),

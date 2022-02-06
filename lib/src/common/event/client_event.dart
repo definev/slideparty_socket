@@ -7,7 +7,6 @@ part 'client_event.g.dart';
 @freezed
 class ClientEvent with _$ClientEvent {
   const factory ClientEvent.joinRoom(String userId) = JoinRoom;
-  const factory ClientEvent.sendName(String name) = SendName;
   const factory ClientEvent.sendBoard(List<int> board) = SendBoard;
   const factory ClientEvent.sendAction(
       String affectedPlayerId, SlidepartyActions action) = SendAction;
@@ -17,7 +16,6 @@ class ClientEvent with _$ClientEvent {
 
 abstract class ClientEventType {
   static const joinRoom = 'JoinRoom';
-  static const sendName = 'SendName';
   static const sendBoard = 'SendBoard';
   static const sendAction = 'SendAction';
 }

@@ -21,7 +21,6 @@ class SlidepartySocket {
   Future<void> send(ClientEvent event) async {
     final eventType = event.map(
       joinRoom: (event) => ClientEventType.joinRoom,
-      sendName: (event) => ClientEventType.sendName,
       sendBoard: (event) => ClientEventType.sendBoard,
       sendAction: (event) => ClientEventType.sendAction,
     );

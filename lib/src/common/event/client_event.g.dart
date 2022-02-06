@@ -17,17 +17,6 @@ Map<String, dynamic> _$$JoinRoomToJson(_$JoinRoom instance) =>
       'runtimeType': instance.$type,
     };
 
-_$SendName _$$SendNameFromJson(Map<String, dynamic> json) => _$SendName(
-      json['name'] as String,
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$SendNameToJson(_$SendName instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'runtimeType': instance.$type,
-    };
-
 _$SendBoard _$$SendBoardFromJson(Map<String, dynamic> json) => _$SendBoard(
       (json['board'] as List<dynamic>).map((e) => e as int).toList(),
       $type: json['runtimeType'] as String?,
