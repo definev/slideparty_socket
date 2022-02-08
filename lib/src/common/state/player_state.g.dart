@@ -7,6 +7,7 @@ part of 'player_state.dart';
 // **************************************************************************
 
 _$PlayerData _$$PlayerDataFromJson(Map<String, dynamic> json) => _$PlayerData(
+      id: json['id'] as String,
       currentBoard:
           (json['currentBoard'] as List<dynamic>).map((e) => e as int).toList(),
       color: $enumDecode(_$PlayerColorsEnumMap, json['color']),
@@ -20,6 +21,7 @@ _$PlayerData _$$PlayerDataFromJson(Map<String, dynamic> json) => _$PlayerData(
 
 Map<String, dynamic> _$$PlayerDataToJson(_$PlayerData instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'currentBoard': instance.currentBoard,
       'color': _$PlayerColorsEnumMap[instance.color],
       'affectedActions': instance.affectedActions

@@ -23,11 +23,13 @@ class _$PlayerStateTearOff {
   const _$PlayerStateTearOff();
 
   PlayerData data(
-      {required List<int> currentBoard,
+      {required String id,
+      required List<int> currentBoard,
       required PlayerColors color,
       required Map<String, SlidepartyActions> affectedActions,
       required List<SlidepartyActions> usedActions}) {
     return PlayerData(
+      id: id,
       currentBoard: currentBoard,
       color: color,
       affectedActions: affectedActions,
@@ -45,6 +47,7 @@ const $PlayerState = _$PlayerStateTearOff();
 
 /// @nodoc
 mixin _$PlayerState {
+  String get id => throw _privateConstructorUsedError;
   List<int> get currentBoard => throw _privateConstructorUsedError;
   PlayerColors get color => throw _privateConstructorUsedError;
   Map<String, SlidepartyActions> get affectedActions =>
@@ -54,6 +57,7 @@ mixin _$PlayerState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            String id,
             List<int> currentBoard,
             PlayerColors color,
             Map<String, SlidepartyActions> affectedActions,
@@ -64,6 +68,7 @@ mixin _$PlayerState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(
+            String id,
             List<int> currentBoard,
             PlayerColors color,
             Map<String, SlidepartyActions> affectedActions,
@@ -74,6 +79,7 @@ mixin _$PlayerState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            String id,
             List<int> currentBoard,
             PlayerColors color,
             Map<String, SlidepartyActions> affectedActions,
@@ -110,7 +116,8 @@ abstract class $PlayerStateCopyWith<$Res> {
           PlayerState value, $Res Function(PlayerState) then) =
       _$PlayerStateCopyWithImpl<$Res>;
   $Res call(
-      {List<int> currentBoard,
+      {String id,
+      List<int> currentBoard,
       PlayerColors color,
       Map<String, SlidepartyActions> affectedActions,
       List<SlidepartyActions> usedActions});
@@ -126,12 +133,17 @@ class _$PlayerStateCopyWithImpl<$Res> implements $PlayerStateCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? currentBoard = freezed,
     Object? color = freezed,
     Object? affectedActions = freezed,
     Object? usedActions = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       currentBoard: currentBoard == freezed
           ? _value.currentBoard
           : currentBoard // ignore: cast_nullable_to_non_nullable
@@ -159,7 +171,8 @@ abstract class $PlayerDataCopyWith<$Res> implements $PlayerStateCopyWith<$Res> {
       _$PlayerDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<int> currentBoard,
+      {String id,
+      List<int> currentBoard,
       PlayerColors color,
       Map<String, SlidepartyActions> affectedActions,
       List<SlidepartyActions> usedActions});
@@ -176,12 +189,17 @@ class _$PlayerDataCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? currentBoard = freezed,
     Object? color = freezed,
     Object? affectedActions = freezed,
     Object? usedActions = freezed,
   }) {
     return _then(PlayerData(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       currentBoard: currentBoard == freezed
           ? _value.currentBoard
           : currentBoard // ignore: cast_nullable_to_non_nullable
@@ -206,7 +224,8 @@ class _$PlayerDataCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PlayerData implements PlayerData {
   _$PlayerData(
-      {required this.currentBoard,
+      {required this.id,
+      required this.currentBoard,
       required this.color,
       required this.affectedActions,
       required this.usedActions});
@@ -214,6 +233,8 @@ class _$PlayerData implements PlayerData {
   factory _$PlayerData.fromJson(Map<String, dynamic> json) =>
       _$$PlayerDataFromJson(json);
 
+  @override
+  final String id;
   @override
   final List<int> currentBoard;
   @override
@@ -225,7 +246,7 @@ class _$PlayerData implements PlayerData {
 
   @override
   String toString() {
-    return 'PlayerState.data(currentBoard: $currentBoard, color: $color, affectedActions: $affectedActions, usedActions: $usedActions)';
+    return 'PlayerState.data(id: $id, currentBoard: $currentBoard, color: $color, affectedActions: $affectedActions, usedActions: $usedActions)';
   }
 
   @override
@@ -233,6 +254,7 @@ class _$PlayerData implements PlayerData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is PlayerData &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.currentBoard, currentBoard) &&
             const DeepCollectionEquality().equals(other.color, color) &&
@@ -245,6 +267,7 @@ class _$PlayerData implements PlayerData {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(currentBoard),
       const DeepCollectionEquality().hash(color),
       const DeepCollectionEquality().hash(affectedActions),
@@ -259,32 +282,35 @@ class _$PlayerData implements PlayerData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            String id,
             List<int> currentBoard,
             PlayerColors color,
             Map<String, SlidepartyActions> affectedActions,
             List<SlidepartyActions> usedActions)
         data,
   }) {
-    return data(currentBoard, color, affectedActions, usedActions);
+    return data(id, currentBoard, color, affectedActions, usedActions);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(
+            String id,
             List<int> currentBoard,
             PlayerColors color,
             Map<String, SlidepartyActions> affectedActions,
             List<SlidepartyActions> usedActions)?
         data,
   }) {
-    return data?.call(currentBoard, color, affectedActions, usedActions);
+    return data?.call(id, currentBoard, color, affectedActions, usedActions);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            String id,
             List<int> currentBoard,
             PlayerColors color,
             Map<String, SlidepartyActions> affectedActions,
@@ -293,7 +319,7 @@ class _$PlayerData implements PlayerData {
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(currentBoard, color, affectedActions, usedActions);
+      return data(id, currentBoard, color, affectedActions, usedActions);
     }
     return orElse();
   }
@@ -334,7 +360,8 @@ class _$PlayerData implements PlayerData {
 
 abstract class PlayerData implements PlayerState {
   factory PlayerData(
-      {required List<int> currentBoard,
+      {required String id,
+      required List<int> currentBoard,
       required PlayerColors color,
       required Map<String, SlidepartyActions> affectedActions,
       required List<SlidepartyActions> usedActions}) = _$PlayerData;
@@ -342,6 +369,8 @@ abstract class PlayerData implements PlayerState {
   factory PlayerData.fromJson(Map<String, dynamic> json) =
       _$PlayerData.fromJson;
 
+  @override
+  String get id;
   @override
   List<int> get currentBoard;
   @override
