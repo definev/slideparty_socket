@@ -26,7 +26,7 @@ class _$PlayerStateTearOff {
       {required String id,
       required List<int> currentBoard,
       required PlayerColors color,
-      required Map<String, SlidepartyActions> affectedActions,
+      required Map<String, List<SlidepartyActions>> affectedActions,
       required List<SlidepartyActions> usedActions}) {
     return PlayerData(
       id: id,
@@ -50,7 +50,7 @@ mixin _$PlayerState {
   String get id => throw _privateConstructorUsedError;
   List<int> get currentBoard => throw _privateConstructorUsedError;
   PlayerColors get color => throw _privateConstructorUsedError;
-  Map<String, SlidepartyActions> get affectedActions =>
+  Map<String, List<SlidepartyActions>> get affectedActions =>
       throw _privateConstructorUsedError;
   List<SlidepartyActions> get usedActions => throw _privateConstructorUsedError;
 
@@ -60,7 +60,7 @@ mixin _$PlayerState {
             String id,
             List<int> currentBoard,
             PlayerColors color,
-            Map<String, SlidepartyActions> affectedActions,
+            Map<String, List<SlidepartyActions>> affectedActions,
             List<SlidepartyActions> usedActions)
         data,
   }) =>
@@ -71,7 +71,7 @@ mixin _$PlayerState {
             String id,
             List<int> currentBoard,
             PlayerColors color,
-            Map<String, SlidepartyActions> affectedActions,
+            Map<String, List<SlidepartyActions>> affectedActions,
             List<SlidepartyActions> usedActions)?
         data,
   }) =>
@@ -82,7 +82,7 @@ mixin _$PlayerState {
             String id,
             List<int> currentBoard,
             PlayerColors color,
-            Map<String, SlidepartyActions> affectedActions,
+            Map<String, List<SlidepartyActions>> affectedActions,
             List<SlidepartyActions> usedActions)?
         data,
     required TResult orElse(),
@@ -119,7 +119,7 @@ abstract class $PlayerStateCopyWith<$Res> {
       {String id,
       List<int> currentBoard,
       PlayerColors color,
-      Map<String, SlidepartyActions> affectedActions,
+      Map<String, List<SlidepartyActions>> affectedActions,
       List<SlidepartyActions> usedActions});
 }
 
@@ -155,7 +155,7 @@ class _$PlayerStateCopyWithImpl<$Res> implements $PlayerStateCopyWith<$Res> {
       affectedActions: affectedActions == freezed
           ? _value.affectedActions
           : affectedActions // ignore: cast_nullable_to_non_nullable
-              as Map<String, SlidepartyActions>,
+              as Map<String, List<SlidepartyActions>>,
       usedActions: usedActions == freezed
           ? _value.usedActions
           : usedActions // ignore: cast_nullable_to_non_nullable
@@ -174,7 +174,7 @@ abstract class $PlayerDataCopyWith<$Res> implements $PlayerStateCopyWith<$Res> {
       {String id,
       List<int> currentBoard,
       PlayerColors color,
-      Map<String, SlidepartyActions> affectedActions,
+      Map<String, List<SlidepartyActions>> affectedActions,
       List<SlidepartyActions> usedActions});
 }
 
@@ -211,7 +211,7 @@ class _$PlayerDataCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
       affectedActions: affectedActions == freezed
           ? _value.affectedActions
           : affectedActions // ignore: cast_nullable_to_non_nullable
-              as Map<String, SlidepartyActions>,
+              as Map<String, List<SlidepartyActions>>,
       usedActions: usedActions == freezed
           ? _value.usedActions
           : usedActions // ignore: cast_nullable_to_non_nullable
@@ -240,7 +240,7 @@ class _$PlayerData implements PlayerData {
   @override
   final PlayerColors color;
   @override
-  final Map<String, SlidepartyActions> affectedActions;
+  final Map<String, List<SlidepartyActions>> affectedActions;
   @override
   final List<SlidepartyActions> usedActions;
 
@@ -285,7 +285,7 @@ class _$PlayerData implements PlayerData {
             String id,
             List<int> currentBoard,
             PlayerColors color,
-            Map<String, SlidepartyActions> affectedActions,
+            Map<String, List<SlidepartyActions>> affectedActions,
             List<SlidepartyActions> usedActions)
         data,
   }) {
@@ -299,7 +299,7 @@ class _$PlayerData implements PlayerData {
             String id,
             List<int> currentBoard,
             PlayerColors color,
-            Map<String, SlidepartyActions> affectedActions,
+            Map<String, List<SlidepartyActions>> affectedActions,
             List<SlidepartyActions> usedActions)?
         data,
   }) {
@@ -313,7 +313,7 @@ class _$PlayerData implements PlayerData {
             String id,
             List<int> currentBoard,
             PlayerColors color,
-            Map<String, SlidepartyActions> affectedActions,
+            Map<String, List<SlidepartyActions>> affectedActions,
             List<SlidepartyActions> usedActions)?
         data,
     required TResult orElse(),
@@ -363,7 +363,7 @@ abstract class PlayerData implements PlayerState {
       {required String id,
       required List<int> currentBoard,
       required PlayerColors color,
-      required Map<String, SlidepartyActions> affectedActions,
+      required Map<String, List<SlidepartyActions>> affectedActions,
       required List<SlidepartyActions> usedActions}) = _$PlayerData;
 
   factory PlayerData.fromJson(Map<String, dynamic> json) =
@@ -376,7 +376,7 @@ abstract class PlayerData implements PlayerState {
   @override
   PlayerColors get color;
   @override
-  Map<String, SlidepartyActions> get affectedActions;
+  Map<String, List<SlidepartyActions>> get affectedActions;
   @override
   List<SlidepartyActions> get usedActions;
   @override

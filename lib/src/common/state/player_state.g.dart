@@ -12,7 +12,11 @@ _$PlayerData _$$PlayerDataFromJson(Map<String, dynamic> json) => _$PlayerData(
           (json['currentBoard'] as List<dynamic>).map((e) => e as int).toList(),
       color: $enumDecode(_$PlayerColorsEnumMap, json['color']),
       affectedActions: (json['affectedActions'] as Map<String, dynamic>).map(
-        (k, e) => MapEntry(k, $enumDecode(_$SlidepartyActionsEnumMap, e)),
+        (k, e) => MapEntry(
+            k,
+            (e as List<dynamic>)
+                .map((e) => $enumDecode(_$SlidepartyActionsEnumMap, e))
+                .toList()),
       ),
       usedActions: (json['usedActions'] as List<dynamic>)
           .map((e) => $enumDecode(_$SlidepartyActionsEnumMap, e))
@@ -24,8 +28,8 @@ Map<String, dynamic> _$$PlayerDataToJson(_$PlayerData instance) =>
       'id': instance.id,
       'currentBoard': instance.currentBoard,
       'color': _$PlayerColorsEnumMap[instance.color],
-      'affectedActions': instance.affectedActions
-          .map((k, e) => MapEntry(k, _$SlidepartyActionsEnumMap[e])),
+      'affectedActions': instance.affectedActions.map((k, e) =>
+          MapEntry(k, e.map((e) => _$SlidepartyActionsEnumMap[e]).toList())),
       'usedActions': instance.usedActions
           .map((e) => _$SlidepartyActionsEnumMap[e])
           .toList(),

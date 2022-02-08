@@ -11,7 +11,7 @@ class PlayerState with _$PlayerState {
     required String id,
     required List<int> currentBoard,
     required PlayerColors color,
-    required Map<String, SlidepartyActions> affectedActions,
+    required Map<String, List<SlidepartyActions>> affectedActions,
     required List<SlidepartyActions> usedActions,
   }) = PlayerData;
 
