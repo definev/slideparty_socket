@@ -30,4 +30,5 @@ abstract class ServerStateType {
   static const roomData = 'roomData';
   static const roomFull = 'roomFull';
   static const wrongBoardSize = 'wrongBoardSize';
+  static const endGame = 'endGame';
 }
