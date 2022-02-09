@@ -55,3 +55,19 @@ Map<String, dynamic> _$$RoomFullToJson(_$RoomFull instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
+
+_$EndGame _$$EndGameFromJson(Map<String, dynamic> json) => _$EndGame(
+      json['winnerPlayerId'] as String,
+      Duration(microseconds: json['time'] as int),
+      (json['stats'] as List<dynamic>)
+          .map((e) => PlayerStatsAnalysis.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$EndGameToJson(_$EndGame instance) => <String, dynamic>{
+      'winnerPlayerId': instance.winnerPlayerId,
+      'time': instance.time.inMicroseconds,
+      'stats': instance.stats,
+      'runtimeType': instance.$type,
+    };

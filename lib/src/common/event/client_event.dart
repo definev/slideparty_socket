@@ -10,6 +10,8 @@ class ClientEvent with _$ClientEvent {
   const factory ClientEvent.sendBoard(List<int> board) = SendBoard;
   const factory ClientEvent.sendAction(
       String affectedPlayerId, SlidepartyActions action) = SendAction;
+  const factory ClientEvent.solved(String playerId) = Solved;
+
   factory ClientEvent.fromJson(Map<String, dynamic> json) =>
       _$ClientEventFromJson(json);
 }
@@ -18,4 +20,5 @@ abstract class ClientEventType {
   static const joinRoom = 'JoinRoom';
   static const sendBoard = 'SendBoard';
   static const sendAction = 'SendAction';
+  static const solved = 'Solved';
 }

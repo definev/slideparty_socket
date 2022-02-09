@@ -22,6 +22,8 @@ ClientEvent _$ClientEventFromJson(Map<String, dynamic> json) {
       return SendBoard.fromJson(json);
     case 'sendAction':
       return SendAction.fromJson(json);
+    case 'solved':
+      return Solved.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'ClientEvent',
@@ -52,6 +54,12 @@ class _$ClientEventTearOff {
     );
   }
 
+  Solved solved(String playerId) {
+    return Solved(
+      playerId,
+    );
+  }
+
   ClientEvent fromJson(Map<String, Object?> json) {
     return ClientEvent.fromJson(json);
   }
@@ -68,6 +76,7 @@ mixin _$ClientEvent {
     required TResult Function(List<int> board) sendBoard,
     required TResult Function(String affectedPlayerId, SlidepartyActions action)
         sendAction,
+    required TResult Function(String playerId) solved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +85,7 @@ mixin _$ClientEvent {
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
+    TResult Function(String playerId)? solved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,6 +94,7 @@ mixin _$ClientEvent {
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
+    TResult Function(String playerId)? solved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -92,6 +103,7 @@ mixin _$ClientEvent {
     required TResult Function(JoinRoom value) joinRoom,
     required TResult Function(SendBoard value) sendBoard,
     required TResult Function(SendAction value) sendAction,
+    required TResult Function(Solved value) solved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,6 +111,7 @@ mixin _$ClientEvent {
     TResult Function(JoinRoom value)? joinRoom,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
+    TResult Function(Solved value)? solved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -106,6 +119,7 @@ mixin _$ClientEvent {
     TResult Function(JoinRoom value)? joinRoom,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
+    TResult Function(Solved value)? solved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -200,6 +214,7 @@ class _$JoinRoom implements JoinRoom {
     required TResult Function(List<int> board) sendBoard,
     required TResult Function(String affectedPlayerId, SlidepartyActions action)
         sendAction,
+    required TResult Function(String playerId) solved,
   }) {
     return joinRoom(userId);
   }
@@ -211,6 +226,7 @@ class _$JoinRoom implements JoinRoom {
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
+    TResult Function(String playerId)? solved,
   }) {
     return joinRoom?.call(userId);
   }
@@ -222,6 +238,7 @@ class _$JoinRoom implements JoinRoom {
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
+    TResult Function(String playerId)? solved,
     required TResult orElse(),
   }) {
     if (joinRoom != null) {
@@ -236,6 +253,7 @@ class _$JoinRoom implements JoinRoom {
     required TResult Function(JoinRoom value) joinRoom,
     required TResult Function(SendBoard value) sendBoard,
     required TResult Function(SendAction value) sendAction,
+    required TResult Function(Solved value) solved,
   }) {
     return joinRoom(this);
   }
@@ -246,6 +264,7 @@ class _$JoinRoom implements JoinRoom {
     TResult Function(JoinRoom value)? joinRoom,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
+    TResult Function(Solved value)? solved,
   }) {
     return joinRoom?.call(this);
   }
@@ -256,6 +275,7 @@ class _$JoinRoom implements JoinRoom {
     TResult Function(JoinRoom value)? joinRoom,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
+    TResult Function(Solved value)? solved,
     required TResult orElse(),
   }) {
     if (joinRoom != null) {
@@ -353,6 +373,7 @@ class _$SendBoard implements SendBoard {
     required TResult Function(List<int> board) sendBoard,
     required TResult Function(String affectedPlayerId, SlidepartyActions action)
         sendAction,
+    required TResult Function(String playerId) solved,
   }) {
     return sendBoard(board);
   }
@@ -364,6 +385,7 @@ class _$SendBoard implements SendBoard {
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
+    TResult Function(String playerId)? solved,
   }) {
     return sendBoard?.call(board);
   }
@@ -375,6 +397,7 @@ class _$SendBoard implements SendBoard {
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
+    TResult Function(String playerId)? solved,
     required TResult orElse(),
   }) {
     if (sendBoard != null) {
@@ -389,6 +412,7 @@ class _$SendBoard implements SendBoard {
     required TResult Function(JoinRoom value) joinRoom,
     required TResult Function(SendBoard value) sendBoard,
     required TResult Function(SendAction value) sendAction,
+    required TResult Function(Solved value) solved,
   }) {
     return sendBoard(this);
   }
@@ -399,6 +423,7 @@ class _$SendBoard implements SendBoard {
     TResult Function(JoinRoom value)? joinRoom,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
+    TResult Function(Solved value)? solved,
   }) {
     return sendBoard?.call(this);
   }
@@ -409,6 +434,7 @@ class _$SendBoard implements SendBoard {
     TResult Function(JoinRoom value)? joinRoom,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
+    TResult Function(Solved value)? solved,
     required TResult orElse(),
   }) {
     if (sendBoard != null) {
@@ -519,6 +545,7 @@ class _$SendAction implements SendAction {
     required TResult Function(List<int> board) sendBoard,
     required TResult Function(String affectedPlayerId, SlidepartyActions action)
         sendAction,
+    required TResult Function(String playerId) solved,
   }) {
     return sendAction(affectedPlayerId, action);
   }
@@ -530,6 +557,7 @@ class _$SendAction implements SendAction {
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
+    TResult Function(String playerId)? solved,
   }) {
     return sendAction?.call(affectedPlayerId, action);
   }
@@ -541,6 +569,7 @@ class _$SendAction implements SendAction {
     TResult Function(List<int> board)? sendBoard,
     TResult Function(String affectedPlayerId, SlidepartyActions action)?
         sendAction,
+    TResult Function(String playerId)? solved,
     required TResult orElse(),
   }) {
     if (sendAction != null) {
@@ -555,6 +584,7 @@ class _$SendAction implements SendAction {
     required TResult Function(JoinRoom value) joinRoom,
     required TResult Function(SendBoard value) sendBoard,
     required TResult Function(SendAction value) sendAction,
+    required TResult Function(Solved value) solved,
   }) {
     return sendAction(this);
   }
@@ -565,6 +595,7 @@ class _$SendAction implements SendAction {
     TResult Function(JoinRoom value)? joinRoom,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
+    TResult Function(Solved value)? solved,
   }) {
     return sendAction?.call(this);
   }
@@ -575,6 +606,7 @@ class _$SendAction implements SendAction {
     TResult Function(JoinRoom value)? joinRoom,
     TResult Function(SendBoard value)? sendBoard,
     TResult Function(SendAction value)? sendAction,
+    TResult Function(Solved value)? solved,
     required TResult orElse(),
   }) {
     if (sendAction != null) {
@@ -601,4 +633,162 @@ abstract class SendAction implements ClientEvent {
   @JsonKey(ignore: true)
   $SendActionCopyWith<SendAction> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SolvedCopyWith<$Res> {
+  factory $SolvedCopyWith(Solved value, $Res Function(Solved) then) =
+      _$SolvedCopyWithImpl<$Res>;
+  $Res call({String playerId});
+}
+
+/// @nodoc
+class _$SolvedCopyWithImpl<$Res> extends _$ClientEventCopyWithImpl<$Res>
+    implements $SolvedCopyWith<$Res> {
+  _$SolvedCopyWithImpl(Solved _value, $Res Function(Solved) _then)
+      : super(_value, (v) => _then(v as Solved));
+
+  @override
+  Solved get _value => super._value as Solved;
+
+  @override
+  $Res call({
+    Object? playerId = freezed,
+  }) {
+    return _then(Solved(
+      playerId == freezed
+          ? _value.playerId
+          : playerId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$Solved implements Solved {
+  const _$Solved(this.playerId, {String? $type}) : $type = $type ?? 'solved';
+
+  factory _$Solved.fromJson(Map<String, dynamic> json) =>
+      _$$SolvedFromJson(json);
+
+  @override
+  final String playerId;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'ClientEvent.solved(playerId: $playerId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Solved &&
+            const DeepCollectionEquality().equals(other.playerId, playerId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(playerId));
+
+  @JsonKey(ignore: true)
+  @override
+  $SolvedCopyWith<Solved> get copyWith =>
+      _$SolvedCopyWithImpl<Solved>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String userId) joinRoom,
+    required TResult Function(List<int> board) sendBoard,
+    required TResult Function(String affectedPlayerId, SlidepartyActions action)
+        sendAction,
+    required TResult Function(String playerId) solved,
+  }) {
+    return solved(playerId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String userId)? joinRoom,
+    TResult Function(List<int> board)? sendBoard,
+    TResult Function(String affectedPlayerId, SlidepartyActions action)?
+        sendAction,
+    TResult Function(String playerId)? solved,
+  }) {
+    return solved?.call(playerId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String userId)? joinRoom,
+    TResult Function(List<int> board)? sendBoard,
+    TResult Function(String affectedPlayerId, SlidepartyActions action)?
+        sendAction,
+    TResult Function(String playerId)? solved,
+    required TResult orElse(),
+  }) {
+    if (solved != null) {
+      return solved(playerId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(JoinRoom value) joinRoom,
+    required TResult Function(SendBoard value) sendBoard,
+    required TResult Function(SendAction value) sendAction,
+    required TResult Function(Solved value) solved,
+  }) {
+    return solved(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(JoinRoom value)? joinRoom,
+    TResult Function(SendBoard value)? sendBoard,
+    TResult Function(SendAction value)? sendAction,
+    TResult Function(Solved value)? solved,
+  }) {
+    return solved?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(JoinRoom value)? joinRoom,
+    TResult Function(SendBoard value)? sendBoard,
+    TResult Function(SendAction value)? sendAction,
+    TResult Function(Solved value)? solved,
+    required TResult orElse(),
+  }) {
+    if (solved != null) {
+      return solved(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SolvedToJson(this);
+  }
+}
+
+abstract class Solved implements ClientEvent {
+  const factory Solved(String playerId) = _$Solved;
+
+  factory Solved.fromJson(Map<String, dynamic> json) = _$Solved.fromJson;
+
+  String get playerId;
+  @JsonKey(ignore: true)
+  $SolvedCopyWith<Solved> get copyWith => throw _privateConstructorUsedError;
 }
