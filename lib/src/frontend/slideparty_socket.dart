@@ -48,6 +48,8 @@ class SlidepartySocket {
               return RoomFull();
             case ServerStateType.roomData:
               return RoomData.fromJson(json['payload']);
+            case ServerStateType.endGame:
+              return EndGame.fromJson(json['payload']);
             default:
               throw Exception('Unknown state type: ${json['type']}');
           }
