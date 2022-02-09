@@ -7,3 +7,4 @@ export 'src/common/state/server_state.dart'
     hide $ServerStateCopyWith, $RoomDataCopyWith, $WrongBoardSizeCopyWith;
 export 'src/common/model/room_info.dart';
 export 'src/common/model/slideparty_actions.dart';
+export 'src/common/model/player_stats_analysis.dart';
