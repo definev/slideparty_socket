@@ -47,16 +47,6 @@ const _$SlidepartyActionsEnumMap = {
   SlidepartyActions.clear: 'clear',
 };
 
-_$Solved _$$SolvedFromJson(Map<String, dynamic> json) => _$Solved(
-      json['playerId'] as String,
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$SolvedToJson(_$Solved instance) => <String, dynamic>{
-      'playerId': instance.playerId,
-      'runtimeType': instance.$type,
-    };
-
 _$Restart _$$RestartFromJson(Map<String, dynamic> json) => _$Restart(
       $type: json['runtimeType'] as String?,
     );
