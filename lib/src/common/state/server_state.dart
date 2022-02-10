@@ -20,6 +20,7 @@ class ServerState with _$ServerState {
     Duration time,
     List<PlayerStatsAnalysis> stats,
   ) = EndGame;
+
   factory ServerState.fromJson(Map<String, dynamic> json) =>
       _$ServerStateFromJson(json);
 }
