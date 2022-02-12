@@ -42,6 +42,8 @@ class SlidepartySocket {
               return Waiting();
             case ServerStateType.connected:
               return Connected();
+            case ServerStateType.restarting:
+              return Restarting();
             case ServerStateType.wrongBoardSize:
               return WrongBoardSize();
             case ServerStateType.roomFull:
