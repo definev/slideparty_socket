@@ -23,12 +23,30 @@ Map<String, dynamic> _$$ConnectedToJson(_$Connected instance) =>
       'runtimeType': instance.$type,
     };
 
+_$Restarting _$$RestartingFromJson(Map<String, dynamic> json) => _$Restarting(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$RestartingToJson(_$Restarting instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
 _$WrongBoardSize _$$WrongBoardSizeFromJson(Map<String, dynamic> json) =>
     _$WrongBoardSize(
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$WrongBoardSizeToJson(_$WrongBoardSize instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$RoomFull _$$RoomFullFromJson(Map<String, dynamic> json) => _$RoomFull(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$RoomFullToJson(_$RoomFull instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
@@ -44,15 +62,6 @@ Map<String, dynamic> _$$RoomDataToJson(_$RoomData instance) =>
     <String, dynamic>{
       'code': instance.code,
       'players': const MapPlayerStateConverter().toJson(instance.players),
-      'runtimeType': instance.$type,
-    };
-
-_$RoomFull _$$RoomFullFromJson(Map<String, dynamic> json) => _$RoomFull(
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$RoomFullToJson(_$RoomFull instance) =>
-    <String, dynamic>{
       'runtimeType': instance.$type,
     };
 

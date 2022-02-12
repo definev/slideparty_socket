@@ -9,12 +9,13 @@ part 'server_state.g.dart';
 class ServerState with _$ServerState {
   const factory ServerState.waiting() = Waiting;
   const factory ServerState.connected() = Connected;
+  const factory ServerState.restarting() = Restarting;
   const factory ServerState.wrongBoardSize() = WrongBoardSize;
+  const factory ServerState.roomFull() = RoomFull;
   const factory ServerState.roomData({
     required String code,
     @MapPlayerStateConverter() required Map<String, PlayerState> players,
   }) = RoomData;
-  const factory ServerState.roomFull() = RoomFull;
   const factory ServerState.endGame(
     PlayerState winnerPlayerState,
     Duration time,
@@ -28,6 +29,7 @@ class ServerState with _$ServerState {
 abstract class ServerStateType {
   static const waiting = 'waiting';
   static const connected = 'connected';
+  static const restarting = 'restarting';
   static const roomData = 'roomData';
   static const roomFull = 'roomFull';
   static const wrongBoardSize = 'wrongBoardSize';

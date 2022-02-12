@@ -20,12 +20,14 @@ ServerState _$ServerStateFromJson(Map<String, dynamic> json) {
       return Waiting.fromJson(json);
     case 'connected':
       return Connected.fromJson(json);
+    case 'restarting':
+      return Restarting.fromJson(json);
     case 'wrongBoardSize':
       return WrongBoardSize.fromJson(json);
-    case 'roomData':
-      return RoomData.fromJson(json);
     case 'roomFull':
       return RoomFull.fromJson(json);
+    case 'roomData':
+      return RoomData.fromJson(json);
     case 'endGame':
       return EndGame.fromJson(json);
 
@@ -47,8 +49,16 @@ class _$ServerStateTearOff {
     return const Connected();
   }
 
+  Restarting restarting() {
+    return const Restarting();
+  }
+
   WrongBoardSize wrongBoardSize() {
     return const WrongBoardSize();
+  }
+
+  RoomFull roomFull() {
+    return const RoomFull();
   }
 
   RoomData roomData(
@@ -58,10 +68,6 @@ class _$ServerStateTearOff {
       code: code,
       players: players,
     );
-  }
-
-  RoomFull roomFull() {
-    return const RoomFull();
   }
 
   EndGame endGame(PlayerState winnerPlayerState, Duration time,
@@ -87,11 +93,12 @@ mixin _$ServerState {
   TResult when<TResult extends Object?>({
     required TResult Function() waiting,
     required TResult Function() connected,
+    required TResult Function() restarting,
     required TResult Function() wrongBoardSize,
+    required TResult Function() roomFull,
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function() roomFull,
     required TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)
         endGame,
@@ -101,11 +108,12 @@ mixin _$ServerState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? waiting,
     TResult Function()? connected,
+    TResult Function()? restarting,
     TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function()? roomFull,
     TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)?
         endGame,
@@ -115,11 +123,12 @@ mixin _$ServerState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? waiting,
     TResult Function()? connected,
+    TResult Function()? restarting,
     TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function()? roomFull,
     TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)?
         endGame,
@@ -130,9 +139,10 @@ mixin _$ServerState {
   TResult map<TResult extends Object?>({
     required TResult Function(Waiting value) waiting,
     required TResult Function(Connected value) connected,
+    required TResult Function(Restarting value) restarting,
     required TResult Function(WrongBoardSize value) wrongBoardSize,
-    required TResult Function(RoomData value) roomData,
     required TResult Function(RoomFull value) roomFull,
+    required TResult Function(RoomData value) roomData,
     required TResult Function(EndGame value) endGame,
   }) =>
       throw _privateConstructorUsedError;
@@ -140,9 +150,10 @@ mixin _$ServerState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Waiting value)? waiting,
     TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
     TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
     TResult Function(EndGame value)? endGame,
   }) =>
       throw _privateConstructorUsedError;
@@ -150,9 +161,10 @@ mixin _$ServerState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Waiting value)? waiting,
     TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
     TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
     TResult Function(EndGame value)? endGame,
     required TResult orElse(),
   }) =>
@@ -222,11 +234,12 @@ class _$Waiting implements Waiting {
   TResult when<TResult extends Object?>({
     required TResult Function() waiting,
     required TResult Function() connected,
+    required TResult Function() restarting,
     required TResult Function() wrongBoardSize,
+    required TResult Function() roomFull,
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function() roomFull,
     required TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)
         endGame,
@@ -239,11 +252,12 @@ class _$Waiting implements Waiting {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? waiting,
     TResult Function()? connected,
+    TResult Function()? restarting,
     TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function()? roomFull,
     TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)?
         endGame,
@@ -256,11 +270,12 @@ class _$Waiting implements Waiting {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? waiting,
     TResult Function()? connected,
+    TResult Function()? restarting,
     TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function()? roomFull,
     TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)?
         endGame,
@@ -277,9 +292,10 @@ class _$Waiting implements Waiting {
   TResult map<TResult extends Object?>({
     required TResult Function(Waiting value) waiting,
     required TResult Function(Connected value) connected,
+    required TResult Function(Restarting value) restarting,
     required TResult Function(WrongBoardSize value) wrongBoardSize,
-    required TResult Function(RoomData value) roomData,
     required TResult Function(RoomFull value) roomFull,
+    required TResult Function(RoomData value) roomData,
     required TResult Function(EndGame value) endGame,
   }) {
     return waiting(this);
@@ -290,9 +306,10 @@ class _$Waiting implements Waiting {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Waiting value)? waiting,
     TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
     TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
     TResult Function(EndGame value)? endGame,
   }) {
     return waiting?.call(this);
@@ -303,9 +320,10 @@ class _$Waiting implements Waiting {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Waiting value)? waiting,
     TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
     TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
     TResult Function(EndGame value)? endGame,
     required TResult orElse(),
   }) {
@@ -373,11 +391,12 @@ class _$Connected implements Connected {
   TResult when<TResult extends Object?>({
     required TResult Function() waiting,
     required TResult Function() connected,
+    required TResult Function() restarting,
     required TResult Function() wrongBoardSize,
+    required TResult Function() roomFull,
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function() roomFull,
     required TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)
         endGame,
@@ -390,11 +409,12 @@ class _$Connected implements Connected {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? waiting,
     TResult Function()? connected,
+    TResult Function()? restarting,
     TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function()? roomFull,
     TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)?
         endGame,
@@ -407,11 +427,12 @@ class _$Connected implements Connected {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? waiting,
     TResult Function()? connected,
+    TResult Function()? restarting,
     TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function()? roomFull,
     TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)?
         endGame,
@@ -428,9 +449,10 @@ class _$Connected implements Connected {
   TResult map<TResult extends Object?>({
     required TResult Function(Waiting value) waiting,
     required TResult Function(Connected value) connected,
+    required TResult Function(Restarting value) restarting,
     required TResult Function(WrongBoardSize value) wrongBoardSize,
-    required TResult Function(RoomData value) roomData,
     required TResult Function(RoomFull value) roomFull,
+    required TResult Function(RoomData value) roomData,
     required TResult Function(EndGame value) endGame,
   }) {
     return connected(this);
@@ -441,9 +463,10 @@ class _$Connected implements Connected {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Waiting value)? waiting,
     TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
     TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
     TResult Function(EndGame value)? endGame,
   }) {
     return connected?.call(this);
@@ -454,9 +477,10 @@ class _$Connected implements Connected {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Waiting value)? waiting,
     TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
     TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
     TResult Function(EndGame value)? endGame,
     required TResult orElse(),
   }) {
@@ -476,6 +500,165 @@ abstract class Connected implements ServerState {
   const factory Connected() = _$Connected;
 
   factory Connected.fromJson(Map<String, dynamic> json) = _$Connected.fromJson;
+}
+
+/// @nodoc
+abstract class $RestartingCopyWith<$Res> {
+  factory $RestartingCopyWith(
+          Restarting value, $Res Function(Restarting) then) =
+      _$RestartingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$RestartingCopyWithImpl<$Res> extends _$ServerStateCopyWithImpl<$Res>
+    implements $RestartingCopyWith<$Res> {
+  _$RestartingCopyWithImpl(Restarting _value, $Res Function(Restarting) _then)
+      : super(_value, (v) => _then(v as Restarting));
+
+  @override
+  Restarting get _value => super._value as Restarting;
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$Restarting implements Restarting {
+  const _$Restarting({String? $type}) : $type = $type ?? 'restarting';
+
+  factory _$Restarting.fromJson(Map<String, dynamic> json) =>
+      _$$RestartingFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'ServerState.restarting()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Restarting);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() waiting,
+    required TResult Function() connected,
+    required TResult Function() restarting,
+    required TResult Function() wrongBoardSize,
+    required TResult Function() roomFull,
+    required TResult Function(String code,
+            @MapPlayerStateConverter() Map<String, PlayerState> players)
+        roomData,
+    required TResult Function(PlayerState winnerPlayerState, Duration time,
+            List<PlayerStatsAnalysis> stats)
+        endGame,
+  }) {
+    return restarting();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? waiting,
+    TResult Function()? connected,
+    TResult Function()? restarting,
+    TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
+    TResult Function(String code,
+            @MapPlayerStateConverter() Map<String, PlayerState> players)?
+        roomData,
+    TResult Function(PlayerState winnerPlayerState, Duration time,
+            List<PlayerStatsAnalysis> stats)?
+        endGame,
+  }) {
+    return restarting?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? waiting,
+    TResult Function()? connected,
+    TResult Function()? restarting,
+    TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
+    TResult Function(String code,
+            @MapPlayerStateConverter() Map<String, PlayerState> players)?
+        roomData,
+    TResult Function(PlayerState winnerPlayerState, Duration time,
+            List<PlayerStatsAnalysis> stats)?
+        endGame,
+    required TResult orElse(),
+  }) {
+    if (restarting != null) {
+      return restarting();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Waiting value) waiting,
+    required TResult Function(Connected value) connected,
+    required TResult Function(Restarting value) restarting,
+    required TResult Function(WrongBoardSize value) wrongBoardSize,
+    required TResult Function(RoomFull value) roomFull,
+    required TResult Function(RoomData value) roomData,
+    required TResult Function(EndGame value) endGame,
+  }) {
+    return restarting(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Waiting value)? waiting,
+    TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
+    TResult Function(WrongBoardSize value)? wrongBoardSize,
+    TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
+    TResult Function(EndGame value)? endGame,
+  }) {
+    return restarting?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Waiting value)? waiting,
+    TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
+    TResult Function(WrongBoardSize value)? wrongBoardSize,
+    TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
+    TResult Function(EndGame value)? endGame,
+    required TResult orElse(),
+  }) {
+    if (restarting != null) {
+      return restarting(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RestartingToJson(this);
+  }
+}
+
+abstract class Restarting implements ServerState {
+  const factory Restarting() = _$Restarting;
+
+  factory Restarting.fromJson(Map<String, dynamic> json) =
+      _$Restarting.fromJson;
 }
 
 /// @nodoc
@@ -526,11 +709,12 @@ class _$WrongBoardSize implements WrongBoardSize {
   TResult when<TResult extends Object?>({
     required TResult Function() waiting,
     required TResult Function() connected,
+    required TResult Function() restarting,
     required TResult Function() wrongBoardSize,
+    required TResult Function() roomFull,
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function() roomFull,
     required TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)
         endGame,
@@ -543,11 +727,12 @@ class _$WrongBoardSize implements WrongBoardSize {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? waiting,
     TResult Function()? connected,
+    TResult Function()? restarting,
     TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function()? roomFull,
     TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)?
         endGame,
@@ -560,11 +745,12 @@ class _$WrongBoardSize implements WrongBoardSize {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? waiting,
     TResult Function()? connected,
+    TResult Function()? restarting,
     TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function()? roomFull,
     TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)?
         endGame,
@@ -581,9 +767,10 @@ class _$WrongBoardSize implements WrongBoardSize {
   TResult map<TResult extends Object?>({
     required TResult Function(Waiting value) waiting,
     required TResult Function(Connected value) connected,
+    required TResult Function(Restarting value) restarting,
     required TResult Function(WrongBoardSize value) wrongBoardSize,
-    required TResult Function(RoomData value) roomData,
     required TResult Function(RoomFull value) roomFull,
+    required TResult Function(RoomData value) roomData,
     required TResult Function(EndGame value) endGame,
   }) {
     return wrongBoardSize(this);
@@ -594,9 +781,10 @@ class _$WrongBoardSize implements WrongBoardSize {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Waiting value)? waiting,
     TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
     TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
     TResult Function(EndGame value)? endGame,
   }) {
     return wrongBoardSize?.call(this);
@@ -607,9 +795,10 @@ class _$WrongBoardSize implements WrongBoardSize {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Waiting value)? waiting,
     TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
     TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
     TResult Function(EndGame value)? endGame,
     required TResult orElse(),
   }) {
@@ -630,6 +819,163 @@ abstract class WrongBoardSize implements ServerState {
 
   factory WrongBoardSize.fromJson(Map<String, dynamic> json) =
       _$WrongBoardSize.fromJson;
+}
+
+/// @nodoc
+abstract class $RoomFullCopyWith<$Res> {
+  factory $RoomFullCopyWith(RoomFull value, $Res Function(RoomFull) then) =
+      _$RoomFullCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$RoomFullCopyWithImpl<$Res> extends _$ServerStateCopyWithImpl<$Res>
+    implements $RoomFullCopyWith<$Res> {
+  _$RoomFullCopyWithImpl(RoomFull _value, $Res Function(RoomFull) _then)
+      : super(_value, (v) => _then(v as RoomFull));
+
+  @override
+  RoomFull get _value => super._value as RoomFull;
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$RoomFull implements RoomFull {
+  const _$RoomFull({String? $type}) : $type = $type ?? 'roomFull';
+
+  factory _$RoomFull.fromJson(Map<String, dynamic> json) =>
+      _$$RoomFullFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'ServerState.roomFull()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is RoomFull);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() waiting,
+    required TResult Function() connected,
+    required TResult Function() restarting,
+    required TResult Function() wrongBoardSize,
+    required TResult Function() roomFull,
+    required TResult Function(String code,
+            @MapPlayerStateConverter() Map<String, PlayerState> players)
+        roomData,
+    required TResult Function(PlayerState winnerPlayerState, Duration time,
+            List<PlayerStatsAnalysis> stats)
+        endGame,
+  }) {
+    return roomFull();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? waiting,
+    TResult Function()? connected,
+    TResult Function()? restarting,
+    TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
+    TResult Function(String code,
+            @MapPlayerStateConverter() Map<String, PlayerState> players)?
+        roomData,
+    TResult Function(PlayerState winnerPlayerState, Duration time,
+            List<PlayerStatsAnalysis> stats)?
+        endGame,
+  }) {
+    return roomFull?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? waiting,
+    TResult Function()? connected,
+    TResult Function()? restarting,
+    TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
+    TResult Function(String code,
+            @MapPlayerStateConverter() Map<String, PlayerState> players)?
+        roomData,
+    TResult Function(PlayerState winnerPlayerState, Duration time,
+            List<PlayerStatsAnalysis> stats)?
+        endGame,
+    required TResult orElse(),
+  }) {
+    if (roomFull != null) {
+      return roomFull();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Waiting value) waiting,
+    required TResult Function(Connected value) connected,
+    required TResult Function(Restarting value) restarting,
+    required TResult Function(WrongBoardSize value) wrongBoardSize,
+    required TResult Function(RoomFull value) roomFull,
+    required TResult Function(RoomData value) roomData,
+    required TResult Function(EndGame value) endGame,
+  }) {
+    return roomFull(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Waiting value)? waiting,
+    TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
+    TResult Function(WrongBoardSize value)? wrongBoardSize,
+    TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
+    TResult Function(EndGame value)? endGame,
+  }) {
+    return roomFull?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Waiting value)? waiting,
+    TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
+    TResult Function(WrongBoardSize value)? wrongBoardSize,
+    TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
+    TResult Function(EndGame value)? endGame,
+    required TResult orElse(),
+  }) {
+    if (roomFull != null) {
+      return roomFull(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RoomFullToJson(this);
+  }
+}
+
+abstract class RoomFull implements ServerState {
+  const factory RoomFull() = _$RoomFull;
+
+  factory RoomFull.fromJson(Map<String, dynamic> json) = _$RoomFull.fromJson;
 }
 
 /// @nodoc
@@ -719,11 +1065,12 @@ class _$RoomData implements RoomData {
   TResult when<TResult extends Object?>({
     required TResult Function() waiting,
     required TResult Function() connected,
+    required TResult Function() restarting,
     required TResult Function() wrongBoardSize,
+    required TResult Function() roomFull,
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function() roomFull,
     required TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)
         endGame,
@@ -736,11 +1083,12 @@ class _$RoomData implements RoomData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? waiting,
     TResult Function()? connected,
+    TResult Function()? restarting,
     TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function()? roomFull,
     TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)?
         endGame,
@@ -753,11 +1101,12 @@ class _$RoomData implements RoomData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? waiting,
     TResult Function()? connected,
+    TResult Function()? restarting,
     TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function()? roomFull,
     TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)?
         endGame,
@@ -774,9 +1123,10 @@ class _$RoomData implements RoomData {
   TResult map<TResult extends Object?>({
     required TResult Function(Waiting value) waiting,
     required TResult Function(Connected value) connected,
+    required TResult Function(Restarting value) restarting,
     required TResult Function(WrongBoardSize value) wrongBoardSize,
-    required TResult Function(RoomData value) roomData,
     required TResult Function(RoomFull value) roomFull,
+    required TResult Function(RoomData value) roomData,
     required TResult Function(EndGame value) endGame,
   }) {
     return roomData(this);
@@ -787,9 +1137,10 @@ class _$RoomData implements RoomData {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Waiting value)? waiting,
     TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
     TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
     TResult Function(EndGame value)? endGame,
   }) {
     return roomData?.call(this);
@@ -800,9 +1151,10 @@ class _$RoomData implements RoomData {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Waiting value)? waiting,
     TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
     TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
     TResult Function(EndGame value)? endGame,
     required TResult orElse(),
   }) {
@@ -832,157 +1184,6 @@ abstract class RoomData implements ServerState {
   @JsonKey(ignore: true)
   $RoomDataCopyWith<RoomData> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RoomFullCopyWith<$Res> {
-  factory $RoomFullCopyWith(RoomFull value, $Res Function(RoomFull) then) =
-      _$RoomFullCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$RoomFullCopyWithImpl<$Res> extends _$ServerStateCopyWithImpl<$Res>
-    implements $RoomFullCopyWith<$Res> {
-  _$RoomFullCopyWithImpl(RoomFull _value, $Res Function(RoomFull) _then)
-      : super(_value, (v) => _then(v as RoomFull));
-
-  @override
-  RoomFull get _value => super._value as RoomFull;
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$RoomFull implements RoomFull {
-  const _$RoomFull({String? $type}) : $type = $type ?? 'roomFull';
-
-  factory _$RoomFull.fromJson(Map<String, dynamic> json) =>
-      _$$RoomFullFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'ServerState.roomFull()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is RoomFull);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() waiting,
-    required TResult Function() connected,
-    required TResult Function() wrongBoardSize,
-    required TResult Function(String code,
-            @MapPlayerStateConverter() Map<String, PlayerState> players)
-        roomData,
-    required TResult Function() roomFull,
-    required TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)
-        endGame,
-  }) {
-    return roomFull();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? waiting,
-    TResult Function()? connected,
-    TResult Function()? wrongBoardSize,
-    TResult Function(String code,
-            @MapPlayerStateConverter() Map<String, PlayerState> players)?
-        roomData,
-    TResult Function()? roomFull,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
-        endGame,
-  }) {
-    return roomFull?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? waiting,
-    TResult Function()? connected,
-    TResult Function()? wrongBoardSize,
-    TResult Function(String code,
-            @MapPlayerStateConverter() Map<String, PlayerState> players)?
-        roomData,
-    TResult Function()? roomFull,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
-        endGame,
-    required TResult orElse(),
-  }) {
-    if (roomFull != null) {
-      return roomFull();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Waiting value) waiting,
-    required TResult Function(Connected value) connected,
-    required TResult Function(WrongBoardSize value) wrongBoardSize,
-    required TResult Function(RoomData value) roomData,
-    required TResult Function(RoomFull value) roomFull,
-    required TResult Function(EndGame value) endGame,
-  }) {
-    return roomFull(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Waiting value)? waiting,
-    TResult Function(Connected value)? connected,
-    TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
-    TResult Function(RoomFull value)? roomFull,
-    TResult Function(EndGame value)? endGame,
-  }) {
-    return roomFull?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Waiting value)? waiting,
-    TResult Function(Connected value)? connected,
-    TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
-    TResult Function(RoomFull value)? roomFull,
-    TResult Function(EndGame value)? endGame,
-    required TResult orElse(),
-  }) {
-    if (roomFull != null) {
-      return roomFull(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RoomFullToJson(this);
-  }
-}
-
-abstract class RoomFull implements ServerState {
-  const factory RoomFull() = _$RoomFull;
-
-  factory RoomFull.fromJson(Map<String, dynamic> json) = _$RoomFull.fromJson;
 }
 
 /// @nodoc
@@ -1089,11 +1290,12 @@ class _$EndGame implements EndGame {
   TResult when<TResult extends Object?>({
     required TResult Function() waiting,
     required TResult Function() connected,
+    required TResult Function() restarting,
     required TResult Function() wrongBoardSize,
+    required TResult Function() roomFull,
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function() roomFull,
     required TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)
         endGame,
@@ -1106,11 +1308,12 @@ class _$EndGame implements EndGame {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? waiting,
     TResult Function()? connected,
+    TResult Function()? restarting,
     TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function()? roomFull,
     TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)?
         endGame,
@@ -1123,11 +1326,12 @@ class _$EndGame implements EndGame {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? waiting,
     TResult Function()? connected,
+    TResult Function()? restarting,
     TResult Function()? wrongBoardSize,
+    TResult Function()? roomFull,
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function()? roomFull,
     TResult Function(PlayerState winnerPlayerState, Duration time,
             List<PlayerStatsAnalysis> stats)?
         endGame,
@@ -1144,9 +1348,10 @@ class _$EndGame implements EndGame {
   TResult map<TResult extends Object?>({
     required TResult Function(Waiting value) waiting,
     required TResult Function(Connected value) connected,
+    required TResult Function(Restarting value) restarting,
     required TResult Function(WrongBoardSize value) wrongBoardSize,
-    required TResult Function(RoomData value) roomData,
     required TResult Function(RoomFull value) roomFull,
+    required TResult Function(RoomData value) roomData,
     required TResult Function(EndGame value) endGame,
   }) {
     return endGame(this);
@@ -1157,9 +1362,10 @@ class _$EndGame implements EndGame {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Waiting value)? waiting,
     TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
     TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
     TResult Function(EndGame value)? endGame,
   }) {
     return endGame?.call(this);
@@ -1170,9 +1376,10 @@ class _$EndGame implements EndGame {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Waiting value)? waiting,
     TResult Function(Connected value)? connected,
+    TResult Function(Restarting value)? restarting,
     TResult Function(WrongBoardSize value)? wrongBoardSize,
-    TResult Function(RoomData value)? roomData,
     TResult Function(RoomFull value)? roomFull,
+    TResult Function(RoomData value)? roomData,
     TResult Function(EndGame value)? endGame,
     required TResult orElse(),
   }) {
