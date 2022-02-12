@@ -67,7 +67,6 @@ Map<String, dynamic> _$$RoomDataToJson(_$RoomData instance) =>
 
 _$EndGame _$$EndGameFromJson(Map<String, dynamic> json) => _$EndGame(
       PlayerState.fromJson(json['winnerPlayerState'] as Map<String, dynamic>),
-      Duration(microseconds: json['time'] as int),
       (json['stats'] as List<dynamic>)
           .map((e) => PlayerStatsAnalysis.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -76,7 +75,6 @@ _$EndGame _$$EndGameFromJson(Map<String, dynamic> json) => _$EndGame(
 
 Map<String, dynamic> _$$EndGameToJson(_$EndGame instance) => <String, dynamic>{
       'winnerPlayerState': instance.winnerPlayerState,
-      'time': instance.time.inMicroseconds,
       'stats': instance.stats,
       'runtimeType': instance.$type,
     };

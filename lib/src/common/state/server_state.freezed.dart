@@ -70,11 +70,10 @@ class _$ServerStateTearOff {
     );
   }
 
-  EndGame endGame(PlayerState winnerPlayerState, Duration time,
-      List<PlayerStatsAnalysis> stats) {
+  EndGame endGame(
+      PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats) {
     return EndGame(
       winnerPlayerState,
-      time,
       stats,
     );
   }
@@ -99,8 +98,8 @@ mixin _$ServerState {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)
+    required TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)
         endGame,
   }) =>
       throw _privateConstructorUsedError;
@@ -114,8 +113,8 @@ mixin _$ServerState {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
   }) =>
       throw _privateConstructorUsedError;
@@ -129,8 +128,8 @@ mixin _$ServerState {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
     required TResult orElse(),
   }) =>
@@ -240,8 +239,8 @@ class _$Waiting implements Waiting {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)
+    required TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)
         endGame,
   }) {
     return waiting();
@@ -258,8 +257,8 @@ class _$Waiting implements Waiting {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
   }) {
     return waiting?.call();
@@ -276,8 +275,8 @@ class _$Waiting implements Waiting {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
     required TResult orElse(),
   }) {
@@ -397,8 +396,8 @@ class _$Connected implements Connected {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)
+    required TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)
         endGame,
   }) {
     return connected();
@@ -415,8 +414,8 @@ class _$Connected implements Connected {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
   }) {
     return connected?.call();
@@ -433,8 +432,8 @@ class _$Connected implements Connected {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
     required TResult orElse(),
   }) {
@@ -555,8 +554,8 @@ class _$Restarting implements Restarting {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)
+    required TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)
         endGame,
   }) {
     return restarting();
@@ -573,8 +572,8 @@ class _$Restarting implements Restarting {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
   }) {
     return restarting?.call();
@@ -591,8 +590,8 @@ class _$Restarting implements Restarting {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
     required TResult orElse(),
   }) {
@@ -715,8 +714,8 @@ class _$WrongBoardSize implements WrongBoardSize {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)
+    required TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)
         endGame,
   }) {
     return wrongBoardSize();
@@ -733,8 +732,8 @@ class _$WrongBoardSize implements WrongBoardSize {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
   }) {
     return wrongBoardSize?.call();
@@ -751,8 +750,8 @@ class _$WrongBoardSize implements WrongBoardSize {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
     required TResult orElse(),
   }) {
@@ -873,8 +872,8 @@ class _$RoomFull implements RoomFull {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)
+    required TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)
         endGame,
   }) {
     return roomFull();
@@ -891,8 +890,8 @@ class _$RoomFull implements RoomFull {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
   }) {
     return roomFull?.call();
@@ -909,8 +908,8 @@ class _$RoomFull implements RoomFull {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
     required TResult orElse(),
   }) {
@@ -1071,8 +1070,8 @@ class _$RoomData implements RoomData {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)
+    required TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)
         endGame,
   }) {
     return roomData(code, players);
@@ -1089,8 +1088,8 @@ class _$RoomData implements RoomData {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
   }) {
     return roomData?.call(code, players);
@@ -1107,8 +1106,8 @@ class _$RoomData implements RoomData {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
     required TResult orElse(),
   }) {
@@ -1190,10 +1189,7 @@ abstract class RoomData implements ServerState {
 abstract class $EndGameCopyWith<$Res> {
   factory $EndGameCopyWith(EndGame value, $Res Function(EndGame) then) =
       _$EndGameCopyWithImpl<$Res>;
-  $Res call(
-      {PlayerState winnerPlayerState,
-      Duration time,
-      List<PlayerStatsAnalysis> stats});
+  $Res call({PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats});
 
   $PlayerStateCopyWith<$Res> get winnerPlayerState;
 }
@@ -1210,7 +1206,6 @@ class _$EndGameCopyWithImpl<$Res> extends _$ServerStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? winnerPlayerState = freezed,
-    Object? time = freezed,
     Object? stats = freezed,
   }) {
     return _then(EndGame(
@@ -1218,10 +1213,6 @@ class _$EndGameCopyWithImpl<$Res> extends _$ServerStateCopyWithImpl<$Res>
           ? _value.winnerPlayerState
           : winnerPlayerState // ignore: cast_nullable_to_non_nullable
               as PlayerState,
-      time == freezed
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
-              as Duration,
       stats == freezed
           ? _value.stats
           : stats // ignore: cast_nullable_to_non_nullable
@@ -1240,8 +1231,7 @@ class _$EndGameCopyWithImpl<$Res> extends _$ServerStateCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$EndGame implements EndGame {
-  const _$EndGame(this.winnerPlayerState, this.time, this.stats,
-      {String? $type})
+  const _$EndGame(this.winnerPlayerState, this.stats, {String? $type})
       : $type = $type ?? 'endGame';
 
   factory _$EndGame.fromJson(Map<String, dynamic> json) =>
@@ -1250,8 +1240,6 @@ class _$EndGame implements EndGame {
   @override
   final PlayerState winnerPlayerState;
   @override
-  final Duration time;
-  @override
   final List<PlayerStatsAnalysis> stats;
 
   @JsonKey(name: 'runtimeType')
@@ -1259,7 +1247,7 @@ class _$EndGame implements EndGame {
 
   @override
   String toString() {
-    return 'ServerState.endGame(winnerPlayerState: $winnerPlayerState, time: $time, stats: $stats)';
+    return 'ServerState.endGame(winnerPlayerState: $winnerPlayerState, stats: $stats)';
   }
 
   @override
@@ -1269,7 +1257,6 @@ class _$EndGame implements EndGame {
             other is EndGame &&
             const DeepCollectionEquality()
                 .equals(other.winnerPlayerState, winnerPlayerState) &&
-            const DeepCollectionEquality().equals(other.time, time) &&
             const DeepCollectionEquality().equals(other.stats, stats));
   }
 
@@ -1277,7 +1264,6 @@ class _$EndGame implements EndGame {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(winnerPlayerState),
-      const DeepCollectionEquality().hash(time),
       const DeepCollectionEquality().hash(stats));
 
   @JsonKey(ignore: true)
@@ -1296,11 +1282,11 @@ class _$EndGame implements EndGame {
     required TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)
         roomData,
-    required TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)
+    required TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)
         endGame,
   }) {
-    return endGame(winnerPlayerState, time, stats);
+    return endGame(winnerPlayerState, stats);
   }
 
   @override
@@ -1314,11 +1300,11 @@ class _$EndGame implements EndGame {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
   }) {
-    return endGame?.call(winnerPlayerState, time, stats);
+    return endGame?.call(winnerPlayerState, stats);
   }
 
   @override
@@ -1332,13 +1318,13 @@ class _$EndGame implements EndGame {
     TResult Function(String code,
             @MapPlayerStateConverter() Map<String, PlayerState> players)?
         roomData,
-    TResult Function(PlayerState winnerPlayerState, Duration time,
-            List<PlayerStatsAnalysis> stats)?
+    TResult Function(
+            PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats)?
         endGame,
     required TResult orElse(),
   }) {
     if (endGame != null) {
-      return endGame(winnerPlayerState, time, stats);
+      return endGame(winnerPlayerState, stats);
     }
     return orElse();
   }
@@ -1396,13 +1382,13 @@ class _$EndGame implements EndGame {
 }
 
 abstract class EndGame implements ServerState {
-  const factory EndGame(PlayerState winnerPlayerState, Duration time,
-      List<PlayerStatsAnalysis> stats) = _$EndGame;
+  const factory EndGame(
+          PlayerState winnerPlayerState, List<PlayerStatsAnalysis> stats) =
+      _$EndGame;
 
   factory EndGame.fromJson(Map<String, dynamic> json) = _$EndGame.fromJson;
 
   PlayerState get winnerPlayerState;
-  Duration get time;
   List<PlayerStatsAnalysis> get stats;
   @JsonKey(ignore: true)
   $EndGameCopyWith<EndGame> get copyWith => throw _privateConstructorUsedError;

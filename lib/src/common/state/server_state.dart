@@ -18,7 +18,6 @@ class ServerState with _$ServerState {
   }) = RoomData;
   const factory ServerState.endGame(
     PlayerState winnerPlayerState,
-    Duration time,
     List<PlayerStatsAnalysis> stats,
   ) = EndGame;
 
