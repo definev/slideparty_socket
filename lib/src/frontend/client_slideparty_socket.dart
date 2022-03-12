@@ -17,6 +17,8 @@ class ClientSlidepartySocket implements SlidepartySocket {
   }
 
   final WebSocketChannel _channel;
+  
+  @override
   final String userId = Uuid().v4();
 
   @override
