@@ -8,7 +8,7 @@ import 'package:uuid/uuid.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class ClientSlidepartySocket implements SlidepartySocket {
-  ClientSlidepartySocket(RoomInfo info, [bool debug = false])
+  ClientSlidepartySocket(this.info, [bool debug = false])
       : _channel = WebSocketChannel.connect(
           Uri.parse(
               'wss://${debug ? 'localhost:9999' : 'slidepartyserver.herokuapp.com'}/ws/${info.boardSize}/${info.roomCode}'),
@@ -16,8 +16,10 @@ class ClientSlidepartySocket implements SlidepartySocket {
     send(ClientEvent.joinRoom(userId));
   }
 
+  @override
+  late final RoomInfo info;
   final WebSocketChannel _channel;
-  
+
   @override
   final String userId = Uuid().v4();
 
