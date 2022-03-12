@@ -3,10 +3,11 @@ import 'dart:convert';
 import 'package:slideparty_socket/src/common/event/client_event.dart';
 import 'package:slideparty_socket/src/common/model/room_info.dart';
 import 'package:slideparty_socket/src/common/state/server_state.dart';
+import 'package:slideparty_socket/src/frontend/slideparty_socket_interface.dart';
 import 'package:uuid/uuid.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-class SlidepartySocket {
+class SlidepartySocket implements SlidepartySocketInterface {
   SlidepartySocket(RoomInfo info, [bool debug = false])
       : _channel = WebSocketChannel.connect(
           Uri.parse(
@@ -18,6 +19,7 @@ class SlidepartySocket {
   final WebSocketChannel _channel;
   final String userId = Uuid().v4();
 
+  @override
   Future<void> send(ClientEvent event) async {
     final eventType = event.map(
       restart: (event) => ClientEventType.restart,
@@ -32,8 +34,10 @@ class SlidepartySocket {
     }));
   }
 
+  @override
   Future<void> close() async => await _channel.sink.close();
 
+  @override
   Stream<ServerState> get state => _channel.stream.distinct().map((event) {
         if (event is String) {
           final json = jsonDecode(event);
